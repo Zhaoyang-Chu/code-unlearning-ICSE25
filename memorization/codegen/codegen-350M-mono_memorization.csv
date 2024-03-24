@@ -1,0 +1,2652 @@
+doc_id,hash,copies,corpus,text
+5120791,-5804944245284862985,6,BigQuery,"        return ""<%s at %#x>"" % (self.__class__.__name__, id(self))
+
+    def __setitem__(self, key, value):
+        self.data[ref(key, self._remove)] = value
+
+    def copy(self):
+        new = WeakKeyDictionary()
+        with _IterationGuard(self):
+            for key, value in self.data.items():
+                o = key()
+                if o is not None:
+                    new[o] = value
+        return new
+
+    __copy__ = copy
+
+    def __deepcopy__(self, memo):
+        from copy import deepcopy
+        new"
+2210638,8749859720797626587,12,BigQuery,"Size() const [member function]
+    cls.add_method('GetSerializedSize', 
+                   'uint32_t', 
+                   [], 
+                   is_const=True, is_virtual=True)
+    ## lr-wpan-mac-trailer.h (module 'lr-wpan'): static ns3::TypeId ns3::LrWpanMacTrailer::GetTypeId() [member function]
+    cls.add_method('GetTypeId', 
+                   'ns3::TypeId', 
+                   [], 
+                   is_static=True)
+    ## lr-wpan-mac-trailer."
+5393413,-2890569154616112577,7,BigQuery,"    t4 = time.time()
+
+    print('Reading took %.2f seconds. Calculating took %.2f seconds' % ((t2 - t1), (t4 - t3)),
+          file=sys.stderr)
+
+#
+#  Copyright (c) 2013, Novartis Institutes for BioMedical Research Inc.
+#  All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are
+# met:
+#
+#     * Redistributions of source code must retain the above copyright
+#       notice, this list of conditions and the following disclaimer.
+"
+5666746,-6562833976724985021,66,BigQuery,"_INSIDE')])
+    return
+
+def register_Ns3Hasher_methods(root_module, cls):
+    ## hash.h (module 'core'): ns3::Hasher::Hasher(ns3::Hasher const & arg0) [copy constructor]
+    cls.add_constructor([param('ns3::Hasher const &', 'arg0')])
+    ## hash.h (module 'core'): ns3::Hasher::Hasher() [constructor]
+    cls.add_constructor([])
+    ## hash.h (module 'core'): ns3::Hasher::Hasher(ns3::Ptr<"
+1786173,4535584132718191894,14,BigQuery,"add_method('Add', 
+                   'void', 
+                   [param('ns3::ByteTagList const &', 'o')])
+    ## byte-tag-list.h (module 'network'): void ns3::ByteTagList::AddAtEnd(int32_t appendOffset) [member function]
+    cls.add_method('AddAtEnd', 
+                   'void', 
+                   [param('int32_t', 'appendOffset')])
+    ## byte-tag-list.h (module 'network'): void ns3::ByteTagList::AddAtStart(int32_t prependOffset) [member function]
+    cls."
+5181740,1549352675274140687,7,BigQuery,"    if result.ite is not None:
+      raise result.ite
+    return
+
+  def metricMonitor(self, name, options):
+    """"""
+    Parameters:
+     - name
+     - options
+    """"""
+    self.send_metricMonitor(name, options)
+    self.recv_metricMonitor()
+
+  def send_metricMonitor(self, name, options):
+    self._oprot.writeMessageBegin('metricMonitor', TMessageType.CALL, self._seqid)
+    args = metricMonitor_args()
+    args.name = name
+    args.options = options
+    args.write(self._oprot)
+"
+1195095,-5348123537937074628,8,BigQuery,"Produce a :class:`.ColumnClause` object that has the
+    :paramref:`.column.is_literal` flag set to True.
+
+    :func:`.literal_column` is similar to :func:`.column`, except that
+    it is more often used as a ""standalone"" column expression that renders
+    exactly as stated; while :func:`.column` stores a string name that
+    will be assumed to be part of a table and may be quoted as such,
+    :func:`.literal_column` can be that, or any other arbitrary column-oriented
+    expression.
+
+    :param text: the text of the expression; can be"
+3437968,2246537226978377563,7,BigQuery,"'useTcp',
+        'useUdp',
+    ]
+
+    returnables = [
+        'answer_default_zones',
+        'cache_size',
+        'randomize_query_case',
+        'route_domain',
+        'use_ipv4',
+        'use_ipv6',
+        'use_tcp',
+        'use_udp',
+    ]
+
+    updatables = [
+        'answer_default_zones',
+        'cache_size',
+        'randomize_query_case',
+        'route_domain',
+        'use_ipv4',
+        'use_ipv6"
+378761,-8589319941177537193,75,BigQuery,\u2a31\u2a32\u2a33\u2a34\u2a35\u2a36\u2a37\u2a38\u2a39\u2a3a\u2a3b\u2a3c\u2a3d\u2a3e\u2a3f\u2a40\u2a41\u2a42\u2a43\u2a44\u2a45\u2a46\u2a47\u2a48\u2a49\u2a4a\u2a4b\u2a4c\
+3695899,-1707629815208958511,11,BigQuery," can be IPv4 unicast or IPv6 unicast.
+              The default type is IPv4 unicast.
+        choices: ['ipv4uni','ipv6uni']
+'''
+
+EXAMPLES = '''
+
+- name: CloudEngine BGP test
+  hosts: cloudengine
+  connection: local
+  gather_facts: no
+  vars:
+    cli:
+      host: ""{{ inventory_hostname }}""
+      port: ""{{ ansible_ssh_port }}""
+      username: ""{{ username }}""
+      password: ""{{ password }}""
+      transport: cli
+
+  tasks:
+
+  - name"
+787299,-8955596640337089339,11,BigQuery," debug_strs is not None:
+        debug_strs.append('Required field: latitude not set.')
+    if (not self.has_longitude_):
+      initialized = 0
+      if debug_strs is not None:
+        debug_strs.append('Required field: longitude not set.')
+    return initialized
+
+  def ByteSize(self):
+    n = 0
+    return n + 18
+
+  def ByteSizePartial(self):
+    n = 0
+    if (self.has_latitude_):
+      n += 9
+    if (self.has_longitude_):
+      n += 9
+    return n
+
+  "
+3121245,-8689992899297602073,165,BigQuery,", value, **kwargs)
+
+    def delete_cookie(self, key, path='/', domain=None):
+        self.set_cookie(key, max_age=0, path=path, domain=domain,
+                        expires='Thu, 01-Jan-1970 00:00:00 GMT')
+
+    # Common methods used by subclasses
+
+    def make_bytes(self, value):
+        """"""Turn a value into a bytestring encoded in the output charset.""""""
+        # Per PEP 3333, this response body must be bytes. To avoid returning
+        # an instance of a subclass, this function returns `bytes(value)`.
+        # This doesn"
+378761,5808302951986023716,75,BigQuery,u6a27\u6a28\u6a29\u6a2a\u6a2b\u6a2c\u6a2d\u6a2e\u6a2f\u6a30\u6a31\u6a32\u6a33\u6a34\u6a35\u6a36\u6a37\u6a38\u6a39\u6a3a\u6a3b\u6a3c\u6a3d\u6a3e\u6a3f\u6a40\u6a41\u6a
+378761,1158728196768174860,75,BigQuery,97f8\u97f9\u97fa\u97fb\u97fc\u97fd\u97fe\u97ff\u9800\u9801\u9802\u9803\u9804\u9805\u9806\u9807\u9808\u9809\u980a\u980b\u980c\u980d\u980e\u980f\u9810\u9811\u9812\u9813\u9814\u9815\u9816\u9817\u9818\u9819\u981a\u981b\u981
+2210638,-7712575624066062253,12,BigQuery,"IsMatchingType', 
+                   'bool', 
+                   [param('ns3::Address const &', 'address')], 
+                   is_static=True)
+    return
+
+def register_Ns3McpsDataConfirmParams_methods(root_module, cls):
+    ## lr-wpan-mac.h (module 'lr-wpan'): ns3::McpsDataConfirmParams::McpsDataConfirmParams() [constructor]
+    cls.add_constructor([])
+    ## lr-wpan-mac.h (module 'lr-wpan'): ns3::McpsDataConfirmPar"
+5666746,-3164432481771045514,66,BigQuery,"', 'arg0')])
+    ## data-collector.h (module'stats'): ns3::DataCollector::DataCollector() [constructor]
+    cls.add_constructor([])
+    ## data-collector.h (module'stats'): void ns3::DataCollector::AddDataCalculator(ns3::Ptr<ns3::DataCalculator> datac) [member function]
+    cls.add_method('AddDataCalculator', 
+                   'void', 
+                   [param('ns3::Ptr< ns3::DataCalculator >', 'datac')])
+    ## data-collector."
+712130,-2996070510284103446,28,BigQuery,"
+        elif dWeekStart == dSchedStart + relativedelta(days=+7):
+            sched_obj.add_restdays(
+                cr, uid, sched,'restday_ids2', rest_days=nrest_days,
+                context=context
+            )
+        elif dWeekStart == dSchedStart + relativedelta(days=+14):
+            sched_obj.add_restdays(
+                cr, uid, sched,'restday_ids3', rest_days=nrest_days,
+                context=context
+            )
+        elif dWeekStart == dSchedStart + relativedelta"
+378761,5931711588782332209,75,BigQuery,f1\ue9f2\ue9f3\ue9f4\ue9f5\ue9f6\ue9f7\ue9f8\ue9f9\ue9fa\ue9fb\ue9fc\ue9fd\ue9fe\ue9ff\uea00\uea01\uea02\uea03\uea04\uea05\uea06\uea07\uea08\uea09\uea0a\uea0b\uea0c\uea0d\uea0e\uea0f\uea10\uea11\uea12\ue
+1861677,8544921954245221804,11,BigQuery," 0x00e5, 0x00e6, 0x00e7,
+  0x00e8, 0x00e9, 0x00ea, 0x00eb, 0x00ec, 0x00ed, 0x00ee, 0x00ef,
+  0x00f0, 0x00f1, 0x00f2, 0x00f3, 0x00f4, 0x00f5, 0x00f6, 0x00f7,
+  0x00f8, 0x00f9, 0x00fa, 0x00fb, 0x00fc, 0x00fd, 0x00fe"
+75900,-5657243753966764173,81,BigQuery,"
+...   i56,  i57,  i58,  i59,  i60,  i61,  i62,  i63,  i64,  i65,  i66,
+...   i67,  i68,  i69,  i70,  i71,  i72,  i73,  i74,  i75,  i76,  i77,
+...   i78,  i79,  i80,  i81,  i82,  i83,  i84,  i85,  i86,  i87,  i88,
+...   i89,  i90,  i"
+1649997,-5428067914787006594,23,BigQuery,"az'),
+        ('/test/test1/foo/', '', 'handle_foo'),
+        ('/test/test2/bar/', '', 'handle_bar'),
+        ('/test/test2/baz/', '', 'handle_baz'),
+        ('/test/test2/foo/', '', 'handle_foo'),
+        ('/test/test3/bar/', '', 'handle_bar'),
+        ('/test/test3/baz/', '', 'handle_baz'),
+        ('/test/test3/foo/', '', 'handle_foo'),
+        ('/test/test4/bar/"
+2635228,-2782022167007456391,23,BigQuery," back
+        readlifecycle = self.bucket.get_lifecycle_config();
+        for rule in readlifecycle:
+            if rule.id == ""1"":
+                self.assertEqual(rule.prefix, ""1/"")
+                self.assertEqual(rule.expiration.days, 1)
+            elif rule.id == ""2"":
+                self.assertEqual(rule.prefix, ""2/"")
+                self.assertEqual(rule.expiration.days, 2)
+            elif rule.id == ""3"":
+                self.assertEqual(rule.prefix, ""3/"")
+                self.assertEqual("
+1498335,-4657690102489235281,14,BigQuery,"            \@ifundefined{cmdEpydoc@property@description}{}{
+                \par\cmdEpydoc@property@description}
+            \@ifundefined{cmdEpydoc@property@type}{}{
+                \par\textbf{Type:} \cmdEpydoc@property@type}
+            \@ifundefined{cmdEpydoc@property@fget}{}{
+                \par\textbf{Get:} \cmdEpydoc@property@fget}
+            \@ifundefined{cmdEpydoc@property@fset}{}{
+                \par\textbf{Set:} \cmdEpydoc@property@f"
+2665144,-4717521776186942361,16,BigQuery,"deg] = c
+        c = cc
+
+    # warn on rank reduction
+    if rank!= order and not full:
+        msg = ""The fit may be poorly conditioned""
+        warnings.warn(msg, pu.RankWarning, stacklevel=2)
+
+    if full:
+        return c, [resids, rank, s, rcond]
+    else:
+        return c
+
+
+def lagcompanion(c):
+    """"""
+    Return the companion matrix of c.
+
+    The usual companion matrix of the Laguerre polynomials is already
+    symmetric when `c` is a basis Laguerre polynomial, so no scaling is
+"
+378761,3775244072497119472,75,BigQuery,\ue4da\ue4db\ue4dc\ue4dd\ue4de\ue4df\ue4e0\ue4e1\ue4e2\ue4e3\ue4e4\ue4e5\ue4e6\ue4e7\ue4e8\ue4e9\ue4ea\ue4eb\ue4ec\ue4ed\ue4ee\ue4ef\ue4f0\ue4f1\ue4f2\ue4f3\ue4f4\ue4f5\ue4f6\ue4f7\ue4f8\ue4f9\ue
+4665874,4911705373076823871,12,BigQuery,"2', 'val_3', 'val_0', 'val_1', 'val_4');
+INSERT INTO rolling_cf_standard (KEY, 'col_2', 'col_3', 'col_0', 'col_1', 'col_4') VALUES ('row_331', 'val_2', 'val_3', 'val_0', 'val_1', 'val_4');
+INSERT INTO rolling_cf_standard (KEY, 'col_2', 'col_3', 'col_0', 'col_1', 'col_4') VALUES ('row_332', 'val_2', 'val_3', 'val_0',"
+166393,-3435505166240190801,19,BigQuery," version 3 of the License, or\n"")
+    out_file.write("" * (at your option) any later version.\n"")
+    out_file.write("" *\n"")
+    out_file.write("" * This program is distributed in the hope that it will be useful,\n"")
+    out_file.write("" * but WITHOUT ANY WARRANTY; without even the implied warranty of\n"")
+    out_file.write("" * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n"")
+    out_file.write("" * GNU General Public License for more details.\n"")
+    out_file.write"
+5772155,-1993318112452749926,17,BigQuery,"CommandStartedEvent`.
+
+        :Parameters:
+          - `event`: An instance of :class:`CommandStartedEvent`.
+        """"""
+        raise NotImplementedError
+
+    def succeeded(self, event):
+        """"""Abstract method to handle a `CommandSucceededEvent`.
+
+        :Parameters:
+          - `event`: An instance of :class:`CommandSucceededEvent`.
+        """"""
+        raise NotImplementedError
+
+    def failed(self, event):
+        """"""Abstract method to handle a `CommandFailedEvent`.
+
+        :Parameters:
+          - `event`: An instance of :class:`CommandFailedEvent`.
+"
+559931,-4974056170138718644,7,BigQuery,"': 1,
+                   'address': '192.168.1.1',
+                   'network_id': 1,
+                   'virtual_interface_id': 1,
+                   'instance_uuid': '1',
+                   'allocated': False,
+                   'leased': False,
+                  'reserved': False,
+                   'host': None,
+                   'deleted': False},
+                  {'id': 2,
+                   'address': '192.168.1.2',
+                   'network_id': 1,
+                   'virtual_interface_id': 2,
+                   'instance_uuid': '2',
+                   'allocated': False,
+                   'leased"
+3180959,3223188690251432006,8,BigQuery,".pk.name)):
+            kwargs['to_field'] = self.remote_field.field_name
+        return name, path, args, kwargs
+
+    def to_python(self, value):
+        return self.target_field.to_python(value)
+
+    @property
+    def target_field(self):
+        return self.foreign_related_fields[0]
+
+    def get_reverse_path_info(self, filtered_relation=None):
+        """"""Get path from the related model to this field's model.""""""
+        opts = self.model._meta
+        from_opts = self.remote_field.model._"
+378761,-8420367074251112469,75,BigQuery,\u4a84\u4a85\u4a86\u4a87\u4a88\u4a89\u4a8a\u4a8b\u4a8c\u4a8d\u4a8e\u4a8f\u4a90\u4a91\u4a92\u4a93\u4a94\u4a95\u4a96\u4a97\u4a98\u4a99\u4a9a\u4a9b\u4a9c\u4a9d\u4a9e\u4a
+6742764,3885413342054048962,14,BigQuery,"            raise F5ModuleError(str(ex))
+
+        if 'code' in response and response['code'] == 400:
+            if'message' in response:
+                raise F5ModuleError(response['message'])
+            else:
+                raise F5ModuleError(resp.content)
+
+    def exec_module(self):
+        changed = False
+        result = dict()
+        state = self.want.state
+
+        if state == ""present"":
+            changed = self.present()
+        elif state == ""absent"":
+            changed = self.absent()
+
+        reportable = ReportableChanges(params=self.changes.to_return())
+        "
+1119347,-8546712286622715749,6,BigQuery,"data_ = 0
+      self.data_ = """"
+
+  def has_data(self): return self.has_data_
+
+  def received_from(self):
+    if self.received_from_ is None:
+      self.lazy_init_lock_.acquire()
+      try:
+        if self.received_from_ is None: self.received_from_ = AddressPort()
+      finally:
+        self.lazy_init_lock_.release()
+    return self.received_from_
+
+  def mutable_received_from(self): self.has_received_from_ = 1; return self.received_from()
+
+  def clear"
+484103,-6947359531836762235,8,BigQuery,"买一量'
+BID_VOLUME_2 = u'买二量'
+BID_VOLUME_3 = u'买三量'
+BID_VOLUME_4 = u'买四量'
+BID_VOLUME_5 = u'买五量'
+ASK_VOLUME_1 = u'卖一量'
+ASK_VOLUME_2 = u'卖二量'
+ASK_VOLUME_3 = u'卖三量'
+ASK_VOLUME_4 = u'卖四量'
+ASK_"
+378761,-5533417892439375321,75,BigQuery,8b6\ud8b7\ud8b8\ud8b9\ud8ba\ud8bb\ud8bc\ud8bd\ud8be\ud8bf\ud8c0\ud8c1\ud8c2\ud8c3\ud8c4\ud8c5\ud8c6\ud8c7\ud8c8\ud8c9\ud8ca\ud8cb\ud8cc\ud8cd\ud8ce\ud8cf\ud8d0\ud8d1\ud8d2\ud8d3\ud8d4\ud8d5\ud8d
+378761,1679161550255333216,75,BigQuery,u668e\u668f\u6690\u6691\u6692\u6693\u6694\u6695\u6696\u6697\u6698\u6699\u669a\u669b\u669c\u669d\u669e\u669f\u66a0\u66a1\u66a2\u66a3\u66a4\u66a5\u66a6\u66a7\u66a8\u66a9\u66aa\u66ab\u66ac\u66ad\u66ae\u66af\u66b0
+4620588,-5639825660381760036,14,BigQuery,"
+    ## mac-low.h (module 'wifi'): void ns3::MacLow::CreateBlockAckAgreement(ns3::MgtAddBaResponseHeader const * respHdr, ns3::Mac48Address originator, uint16_t startingSeq) [member function]
+    cls.add_method('CreateBlockAckAgreement', 
+                   'void', 
+                   [param('ns3::MgtAddBaResponseHeader const *','respHdr'), param('ns3::Mac48Address', 'originator'), param('uint16_t','startingSeq')])
+    ## mac-low.h (module 'wifi'"
+3513970,1475351968522004029,10,BigQuery," 301, 302, 303, 307]:
+                # Pick out the location header and basically start from the beginning
+                # remembering first to strip the ETag header and decrement our 'depth'
+                if redirections:
+                    if 'location' not in response and response.status!= 300:
+                        raise RedirectMissingLocation( _(""Redirected but the response is missing a Location: header.""), response, content)
+                    # Fix-up relative redirects (which violate an RFC 2616 MUST)
+                    if 'location' in response:
+                        location = response['location']
+                        (scheme, authority, path, query, fragment) = parse_uri(location)
+                        if authority"
+5105809,8272063105715563677,7,BigQuery,"0 = 1
+        floc = 0
+        a, loc, scale = stats.gamma.fit(x, f0=f0, floc=floc)
+        assert_equal(a, f0)
+        assert_equal(loc, floc)
+        assert_almost_equal(scale, x.mean()/a, decimal=8)
+
+        f0 = 2
+        floc = 0
+        a, loc, scale = stats.gamma.fit(x, f0=f0, floc=floc)
+        assert_equal(a, f0)
+        assert_equal(loc, floc)
+        assert_almost_"
+378761,-7669714791826555037,75,BigQuery,42d9\u42da\u42db\u42dc\u42dd\u42de\u42df\u42e0\u42e1\u42e2\u42e3\u42e4\u42e5\u42e6\u42e7\u42e8\u42e9\u42ea\u42eb\u42ec\u42ed\u42ee\u42ef\u42f0\u42f1\u42f2\u42f3\u42f4\u42f5\u42f6\u42f7\u42f8\u42f
+2892958,6391224889523817601,15,BigQuery,"ctools.wraps(fn)
+    def unique(*args, **kw):
+        seen = set()
+        for item in fn(*args, **kw):
+            if item not in seen:
+                seen.add(item)
+                yield item
+    return unique
+
+# TODO: this goes somewhere besides the wheel module
+@_unique
+def uninstallation_paths(dist):
+    """"""
+    Yield all the uninstallation paths for dist based on RECORD-without-.pyc
+
+    Yield paths to all the files in RECORD. For each.py file in RECORD, add
+    the.pyc in the same directory.
+
+    UninstallPath"
+5136130,3515068066284271767,7,BigQuery,"False), param('ns3::CallbackBase const &', 'cb')], 
+                   is_pure_virtual=True, is_const=True, is_virtual=True)
+    return
+
+def register_Ns3TriangularRandomVariable_methods(root_module, cls):
+    ## random-variable-stream.h (module 'core'): static ns3::TypeId ns3::TriangularRandomVariable::GetTypeId() [member function]
+    cls.add_method('GetTypeId', 
+                   'ns3::TypeId', 
+                   [], 
+                   is_static=True)
+    ## random-variable-stream.h ("
+6606711,-7902370467984249229,18,BigQuery,"pass
+        else:
+            raise TestFailed, ""should fail: cPickle D instance - %s"" % base
+        # Give C a nice generic __getstate__ and __setstate__
+        class C(base):
+            __slots__ = ['a']
+            def __getstate__(self):
+                try:
+                    d = self.__dict__.copy()
+                except AttributeError:
+                    d = {}
+                for cls in self.__class__.__mro__:
+                    for sn in cls.__dict__.get('__slots__', ()):
+                        try:
+                            d[sn] = getattr"
+6029997,2740690643608706150,9,BigQuery,"'b'    : '&B',
+    'c'    : '&C',    'd'    : '&D',    'e'    : '&E',    'f'    : '&F',
+    'g'    : '&G',    'h'    : '&H',    'i'    : '&I',    'j'    : '&J',
+    'k'    : '&K',    'l'    : '&L',   'm'    : '&M',    'n'    : '&N',
+    'o'    : '&O',    'p'    : '&P"
+3361989,-4045129373027304119,6,BigQuery,"moves."" + attr.name] = attr
+del attr
+
+_MovedItems._moved_attributes = _moved_attributes
+
+moves = sys.modules[__name__ + "".moves""] = _MovedItems(__name__ + "".moves"")
+
+
+class Module_six_moves_urllib_parse(_LazyModule):
+    """"""Lazy loading of moved objects in six.moves.urllib_parse""""""
+
+
+_urllib_parse_moved_attributes = [
+    MovedAttribute(""ParseResult"", ""urlparse"", ""urllib.parse""),
+    MovedAttribute("""
+2862961,-7312461390696686968,38,BigQuery,"32_t', 'addressIndex')], 
+                   is_pure_virtual=True, is_virtual=True)
+    ## ipv4.h (module 'internet'): bool ns3::Ipv4::RemoveAddress(uint32_t interface, ns3::Ipv4Address address) [member function]
+    cls.add_method('RemoveAddress', 
+                   'bool', 
+                   [param('uint32_t', 'interface'), param('ns3::Ipv4Address', 'address')], 
+                   is_pure_virtual=True, is_virtual=True)
+    ## ipv4.h (module 'internet'):"
+4620588,-171396231696716595,14,BigQuery," wifi-remote-station-manager.h (module 'wifi'): void ns3::WifiRemoteStationManager::Reset() [member function]
+    cls.add_method('Reset', 
+                   'void', 
+                   [])
+    ## wifi-remote-station-manager.h (module 'wifi'): void ns3::WifiRemoteStationManager::Reset(ns3::Mac48Address address) [member function]
+    cls.add_method('Reset', 
+                   'void', 
+                   [param('ns3::Mac48Address', 'address')])
+    ## wifi-remote-station-manager.h (module '"
+378761,-1854592548656523070,75,BigQuery,u827e\u827f\u8280\u8281\u8282\u8283\u8284\u8285\u8286\u8287\u8288\u8289\u828a\u828b\u828c\u828d\u828e\u828f\u8290\u8291\u8292\u8293\u8294\u8295\u8296\u8297\u8298\u8299\u829a\u829b\u829c\u829d\u829e\u829f\
+378761,6607852075568788869,75,BigQuery,ud993\ud994\ud995\ud996\ud997\ud998\ud999\ud99a\ud99b\ud99c\ud99d\ud99e\ud99f\ud9a0\ud9a1\ud9a2\ud9a3\ud9a4\ud9a5\ud9a6\ud9a7\ud9a8\ud9a9\ud9aa\ud9ab\ud9ac\ud9ad\ud9ae\ud9af\ud9b0\ud9b1\ud9b2\ud9b3\ud9b4\ud9b5\ud
+1179863,43982611636351616,7,BigQuery,"
+    (1, TType.STRING, 'type', None, None, ), # 1
+    (2, TType.STRING, 'name', None, None, ), # 2
+  )
+
+  def __init__(self, type=None, name=None,):
+    self.type = type
+    self.name = name
+
+  def read(self, iprot):
+    if iprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None and fastbinary is not None:
+      fastbinary."
+378761,-7710425467997117931,75,BigQuery,21\u9722\u9723\u9724\u9725\u9726\u9727\u9728\u9729\u972a\u972b\u972c\u972d\u972e\u972f\u9730\u9731\u9732\u9733\u9734\u9735\u9736\u9737\u9738\u9739\u973a\u973b\u973c\u973d\u973e\u973f\u9740\u9741\u9742\u9743\
+832293,-2916587927432157305,9,BigQuery,"copy_method
+
+def _keep_alive(x, memo):
+    """"""Keeps a reference to the object x in the memo.
+
+    Because we remember objects by their id, we have
+    to assure that possibly temporary objects are kept
+    alive by referencing them.
+    We store a reference at the id of the memo, which should
+    normally not be used unless someone tries to deepcopy
+    the memo itself...
+    """"""
+    try:
+        memo[id(memo)].append(x)
+    except KeyError:
+        # aha, this is the first one :-)"
+1194741,3915370675488577098,6,BigQuery,"-uploaded files.
+# Example: ""/home/media/media.lawrence.com/media/""
+MEDIA_ROOT = ''
+
+# URL that handles the media served from MEDIA_ROOT. Make sure to use a
+# trailing slash.
+# Examples: ""http://media.lawrence.com/media/"", ""http://example.com/media/""
+MEDIA_URL = ''
+
+# Absolute path to the directory static files should be collected to.
+# Don't put anything in this directory yourself; store your static files
+# in apps' ""static/"" subdirectories and in STATICFILES_DIRS.
+# Example: ""/home/media/"
+378761,8690446080128952443,75,BigQuery,6e03\u6e04\u6e05\u6e06\u6e07\u6e08\u6e09\u6e0a\u6e0b\u6e0c\u6e0d\u6e0e\u6e0f\u6e10\u6e11\u6e12\u6e13\u6e14\u6e15\u6e16\u6e17\u6e18\u6e19\u6e1a\u6e1b\u6e1c\u6e1d\u6e1e\
+4787232,3994922339262902019,7,BigQuery,"    iaxis = normalize_axis_index(iaxis, c.ndim)
+
+    if cnt == 0:
+        return c
+
+    c = np.rollaxis(c, iaxis)
+    k = list(k) + [0]*(cnt - len(k))
+    for i in range(cnt):
+        n = len(c)
+        c *= scl
+        if n == 1 and np.all(c[0] == 0):
+            c[0] += k[i]
+        else:
+            tmp = np.empty((n + 1,) + c.shape[1:], dtype"
+2983912,7678199273632930495,11,BigQuery,"ets,)
+        independent term in decision function.
+
+    n_iter_ : int or array-like
+        Number of active features across every target.
+
+    Notes
+    -----
+    Orthogonal matching pursuit was introduced in G. Mallat, Z. Zhang,
+    Matching pursuits with time-frequency dictionaries, IEEE Transactions on
+    Signal Processing, Vol. 41, No. 12. (December 1993), pp. 3397-3415.
+    (http://blanche.polytechnique.fr/~mallat/papiers/MallatPursuit93.pdf)
+
+    This implementation is based on Rubinstein, R., Zibulevsky,"
+2862961,7451348924858821149,38,BigQuery,"Ns3Packet_Ns3Empty_Ns3DefaultDeleter__lt__ns3Packet__gt___methods(root_module, root_module['ns3::SimpleRefCount< ns3::Packet, ns3::empty, ns3::DefaultDeleter<ns3::Packet> >'])
+    register_Ns3SimpleRefCount__Ns3QueueItem_Ns3Empty_Ns3DefaultDeleter__lt__ns3QueueItem__gt___methods(root_module, root_module['ns3::SimpleRefCount< ns3::QueueItem, ns3::empty, ns3::DefaultDeleter<ns3::QueueItem> >"
+2210638,-4505106778666043674,12,BigQuery,"Ns3Packet_Ns3Empty_Ns3DefaultDeleter__lt__ns3Packet__gt___methods(root_module, root_module['ns3::SimpleRefCount< ns3::Packet, ns3::empty, ns3::DefaultDeleter<ns3::Packet> >'])
+    register_Ns3SimpleRefCount__Ns3SpectrumSignalParameters_Ns3Empty_Ns3DefaultDeleter__lt__ns3SpectrumSignalParameters__gt___methods(root_module, root_module['ns3::SimpleRefCount< ns3::SpectrumSignalParameters, ns3::empty, ns3::DefaultDele"
+5953544,-3489912461556149520,6,BigQuery,"self.groupSuffix = iprot.readString();
+        else:
+          iprot.skip(ftype)
+      else:
+        iprot.skip(ftype)
+      iprot.readFieldEnd()
+    iprot.readStructEnd()
+
+  def write(self, oprot):
+    if oprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and self.thrift_spec is not None and fastbinary is not None:
+      oprot.trans.write(fastbinary.encode_binary(self, (self.__class__, self.thrift_spec)))
+      return
+    oprot.write"
+2302570,7659921516442005940,37,BigQuery,"['reassemble_fragments'] == 'no':
+            return 'disabled'
+
+    @property
+    def reset_on_timeout(self):
+        if self._values['reset_on_timeout'] == 'yes':
+            return 'enabled'
+        elif self._values['reset_on_timeout'] == 'no':
+            return 'disabled'
+
+    @property
+    def rtt_from_client(self):
+        if self._values['rtt_from_client'] == 'yes':
+            return 'enabled'
+        elif self._values['rtt_from_client'] == 'no':
+            return 'disabled'
+
+    @property"
+1179655,-351276404989078462,6,BigQuery,"ize the request_uri?
+        (scheme, authority, path, query, fragment) = parse_uri(request_uri)
+        return (host == self.host) and path.startswith(self.path)
+
+    def request(self, method, request_uri, headers, content):
+        """"""Modify the request headers to add the appropriate
+        Authorization header. Over-ride this in sub-classes.""""""
+        pass
+
+    def response(self, response, content):
+        """"""Gives us a chance to update with new nonces
+        or such returned from the last authorized response.
+        Over-rise this in sub-classes if necessary.
+
+        Return"
+4620588,6134665081058869757,14,BigQuery,"_const=True, visibility='private', is_virtual=True)
+    return
+
+def register_Ns3Object_methods(root_module, cls):
+    ## object.h (module 'core'): ns3::Object::Object() [constructor]
+    cls.add_constructor([])
+    ## object.h (module 'core'): void ns3::Object::AggregateObject(ns3::Ptr<ns3::Object> other) [member function]
+    cls.add_method('AggregateObject', 
+                   'void', 
+                   [param('ns3::Ptr< ns3::Object >', 'other')])
+"
+3938548,6267240147421162586,6,BigQuery," 3017
+XML_SCHEMAP_COS_ST_RESTRICTS_2_3_2_1 = 3018
+XML_SCHEMAP_COS_ST_RESTRICTS_2_3_2_2 = 3019
+XML_SCHEMAP_COS_ST_RESTRICTS_2_3_2_3 = 3020
+XML_SCHEMAP_COS_ST_RESTRICTS_2_3_2_4 = 3021
+XML_SCHEMAP_COS_ST_RESTRICTS_2_3_2_5 = 3022
+XML"
+4665874,-7402264897470934475,12,BigQuery,"_3', 'col_0', 'col_1', 'col_4') VALUES ('row_193', 'val_2', 'val_3', 'val_0', 'val_1', 'val_4');
+INSERT INTO rolling_cf_standard (KEY, 'col_2', 'col_3', 'col_0', 'col_1', 'col_4') VALUES ('row_297', 'val_2', 'val_3', 'val_0', 'val_1', 'val_4');
+INSERT INTO rolling_cf_standard (KEY, 'col_2', 'col_3', 'col_0', 'col_1"
+1861052,-1569266101989583636,6,BigQuery," + '""/>\n')
+sc.write('  <property name=""pin6"" type=""string"" value=""' + dPins['6'] + '""/>\n')
+sc.write('  <property name=""pin6inv"" type=""bool"" value=""' + dInvert['6'] + '""/>\n')
+sc.write('  <property name=""pin7"" type=""string"" value=""' + dPins['7'] + '""/>\n')
+sc.write('  <property name=""pin7inv"" type=""bool"" value=""' + dInvert['7'] + '""/>\n')
+sc.write('  <property name="""
+1786173,8231535115415088702,14,BigQuery,"network'): uint32_t ns3::EthernetHeader::Deserialize(ns3::Buffer::Iterator start) [member function]
+    cls.add_method('Deserialize', 
+                   'uint32_t', 
+                   [param('ns3::Buffer::Iterator','start')], 
+                   is_virtual=True)
+    ## ethernet-header.h (module 'network'): ns3::Mac48Address ns3::EthernetHeader::GetDestination() const [member function]
+    cls.add_method('GetDestination', 
+                   'ns3::Mac48Address', 
+                   [], 
+                   is"
+4393893,-1954144832584931973,38,BigQuery,"        else:
+            if not self.addr and not self.mask:
+                self.set_ipv6_enable(self.interface)
+            else:
+                self.set_ipv6_addr(self.interface, self.addr, self.mask)
+
+        self.get_end_state()
+        self.results['changed'] = self.changed
+        self.results['proposed'] = self.proposed
+        self.results['existing'] = self.existing
+        self.results['end_state'] = self.end_state
+        if self.changed:
+            self.results['updates'] = self.updates_cmd
+        else"
+378776,8099268376519756910,83,BigQuery,"(self, method, url, body=None, headers=None,
+                encode_multipart=True, multipart_boundary=None,
+                **kw):  # Abstract
+        raise NotImplemented(""Classes extending RequestMethods must implement ""
+                             ""their own ``urlopen`` method."")
+
+    def request(self, method, url, fields=None, headers=None, **urlopen_kw):
+        """"""
+        Make a request using :meth:`urlopen` with the appropriate encoding of
+        ``fields`` based on the ``method`` used.
+
+        This is a convenience method that requires the least amount of manual
+        effort. It can"
+1922749,8471482431838003487,44,BigQuery,".0.0.0
+  secondary_dns:
+    description:
+    - The secondary DNS server that this block of IPv4 addresses should access.
+    default: 0.0.0.0
+  ipv6_first_addr:
+    description:
+    - The first IPv6 address in the IPv6 addresses block.
+    - This is the From field in the UCS Manager Add IPv6 Blocks menu.
+  ipv6_last_addr:
+    description:
+    - The last IPv6 address in the IPv6 addresses block.
+    - This is the To field in the UCS Manager Add IPv6 Blocks menu.
+  ipv6_prefix:
+    description"
+3650037,-5657617436943822359,8,BigQuery," = True
+
+try:
+	from datetime import datetime
+except ImportError:
+	print ""[Error] datetime python library is required to be installed!""
+else:
+	datetimeLibFound = True
+
+try:
+	import csv
+except ImportError:
+	print ""[Error] csv python library is required to be installed!""
+else:
+	csvLibFound = True
+
+try:
+	import xlrd
+except ImportError:
+	print ""[Error] xlrd python library is required to be installed!""
+else:
+	xlrdLibFound = True
+
+try:
+	import xlwt
+except ImportError:
+	print ""[Error"
+1786173,882660119726554133,14,BigQuery,"', 'MIN', 'S', 'MS', 'US', 'NS', 'PS', 'FS', 'LAST'], outer_class=root_module['ns3::Time'], import_from_module='ns.core')
+    ## nstime.h (module 'core'): ns3::Time [class]
+    root_module['ns3::Time'].implicitly_converts_to(root_module['ns3::int64x64_t'])
+    ## trace-source-accessor.h (module 'core'): ns3::TraceSourceAccessor [class]
+    module.add_class('TraceSourceAccessor',"
+1558362,265004135382957338,7,BigQuery,", Series
+        arr = Categorical(list('abc'))
+        result = lib.infer_dtype(arr)
+        self.assertEqual(result, 'categorical')
+
+        result = lib.infer_dtype(Series(arr))
+        self.assertEqual(result, 'categorical')
+
+        arr = Categorical(list('abc'), categories=['cegfab'], ordered=True)
+        result = lib.infer_dtype(arr)
+        self.assertEqual(result, 'categorical')
+
+        result = lib.infer_dtype(Series(arr))
+        self.assertE"
+5136130,-7959106297906684403,7,BigQuery,", double >', 'params'), param('double', 'b')])
+    return
+
+def register_Ns3RandomVariableStream_methods(root_module, cls):
+    ## random-variable-stream.h (module 'core'): static ns3::TypeId ns3::RandomVariableStream::GetTypeId() [member function]
+    cls.add_method('GetTypeId', 
+                   'ns3::TypeId', 
+                   [], 
+                   is_static=True)
+    ## random-variable-stream.h (module 'core'): ns3::RandomVariableStream::RandomVariableStream() [constructor]
+    cls.add"
+5984999,8582683621940508731,62,BigQuery," items:
+            f.write(""#define %s_%s %s\n"" % (prefix, k.upper(), v))
+    f = open(""sre_constants.h"", ""w"")
+    f.write(""""""\
+/*
+ * Secret Labs' Regular Expression Engine
+ *
+ * regular expression matching engine
+ *
+ * NOTE: This file is generated by sre_constants.py.  If you need
+ * to change anything in here, edit sre_constants.py and run it.
+ *
+ * Copyright (c) 1997-2001 by Secret Labs AB.  All rights reserved."
+378761,429447847312089550,75,BigQuery,"17\uff41\uff42\uff43\uff44\uff45\uff46\uff47\uff48\uff49\uff4a\uff4b\uff4c\uff4d\uff4e\uff4f\uff50\uff51\uff52\uff53\uff54\uff55\uff56\uff57\uff58\uff59\uff5a'
+
+Lm = u'\u02b0\u02b1\u02b2\u02b3\u02b4\u02b5\u02b6\u02b7\u02b8\u02b9\u02ba\u"
+2968932,105302906741609,24,BigQuery,"']
+    firewall_ssh_local_ca_data = data['firewall_ssh_local_ca']
+    filtered_data = filter_firewall_ssh_local_ca_data(firewall_ssh_local_ca_data)
+    if firewall_ssh_local_ca_data['state'] == ""present"":
+        return fos.set('firewall.ssh',
+                       'local-ca',
+                       data=filtered_data,
+                       vdom=vdom)
+
+    elif firewall_ssh_local_ca_data['state'] == ""absent"":
+        return fos.delete('firewall.ssh',
+                          'local"
+4620588,-4354798057932883999,14,BigQuery,"ifiManager_methods(root_module, cls):
+    ## arf-wifi-manager.h (module 'wifi'): ns3::ArfWifiManager::ArfWifiManager(ns3::ArfWifiManager const & arg0) [copy constructor]
+    cls.add_constructor([param('ns3::ArfWifiManager const &', 'arg0')])
+    ## arf-wifi-manager.h (module 'wifi'): ns3::ArfWifiManager::ArfWifiManager() [constructor]
+    cls.add_constructor([])
+    ## arf-wifi-"
+1179655,-2497167674766642142,6,BigQuery,"=None, redirections=DEFAULT_MAX_REDIRECTS, connection_type=None):
+        """""" Performs a single HTTP request.
+
+        The 'uri' is the URI of the HTTP resource and can begin with either
+        'http' or 'https'. The value of 'uri' must be an absolute URI.
+
+        The'method' is the HTTP method to perform, such as GET, POST, DELETE,
+        etc. There is no restriction on the methods allowed.
+
+        The 'body' is the entity body to be sent with the request. It is a
+        string object.
+
+        Any extra headers that are to be sent with the request should be
+        provided"
+1786173,-5267739437426721726,14,BigQuery," const [member function]
+    cls.add_method('Copy', 
+                   'ns3::Ptr< ns3::AttributeValue >', 
+                   [], 
+                   is_const=True, is_virtual=True)
+    ## double.h (module 'core'): bool ns3::DoubleValue::DeserializeFromString(std::string value, ns3::Ptr<ns3::AttributeChecker const> checker) [member function]
+    cls.add_method('DeserializeFromString', 
+                   'bool', 
+                   [param('std::string', 'value'), param('ns3::Ptr< ns3::AttributeChecker const"
+378761,3176467902406062661,75,BigQuery,d\u4f3e\u4f3f\u4f40\u4f41\u4f42\u4f43\u4f44\u4f45\u4f46\u4f47\u4f48\u4f49\u4f4a\u4f4b\u4f4c\u4f4d\u4f4e\u4f4f\u4f50\u4f51\u4f52\u4f53\u4f54\u4f55\u4f56\u4f57\u4f58\u4f59\
+378761,3702748406177629507,75,BigQuery,\ue703\ue704\ue705\ue706\ue707\ue708\ue709\ue70a\ue70b\ue70c\ue70d\ue70e\ue70f\ue710\ue711\ue712\ue713\ue714\ue715\ue716\ue717\ue718\ue719\ue71a\ue71b\ue71c\ue71d\ue71e\ue71f\ue720\ue721\ue722\ue723\ue724\ue725\ue726\ue727\ue728\ue729\ue72a\ue72b\ue72
+378761,1722523310832056209,75,BigQuery,\uc064\uc065\uc066\uc067\uc068\uc069\uc06a\uc06b\uc06c\uc06d\uc06e\uc06f\uc070\uc071\uc072\uc073\uc074\uc075\uc076\uc077\uc078\uc079\uc07a\uc07b\uc07c\uc07d\uc07e\uc07f\uc080\uc081\uc082\uc083\uc084\uc085\uc086\uc087\uc088\uc089\uc08a
+6818328,-8746505201571304133,34,BigQuery,"')
+      #  if cw: self.write(iso.ARC_CW)
+      #  else: self.write(iso.ARC_CCW)
+      #  self.write_preps()
+       #if (x!= None):
+        #    self.write(iso.X + (self.fmt % x))
+        #    self.x = x
+        #if (y!= None):
+        #    self.write(iso.Y + (self.fmt % y))
+        #    self.y = y
+        #if (z!= None):
+         #   self.write"
+3620598,-1019167471992481798,34,BigQuery,"_forcelist:
+        A set of integer HTTP status codes that we should force a retry on.
+        A retry is initiated if the request method is in ``method_whitelist``
+        and the response status code is in ``status_forcelist``.
+
+        By default, this is disabled with ``None``.
+
+    :param float backoff_factor:
+        A backoff factor to apply between attempts after the second try
+        (most errors are resolved immediately by a second try without a
+        delay). urllib3 will sleep for::
+
+            {backoff factor} * (2 ** ({number of total retries} - 1))
+
+        seconds. If the backoff"
+2467897,-7553389877997450878,6,BigQuery,"(d)
+        y = np.asarray(y)
+        ret = add.reduce(d * (y[slice1]+y[slice2])/2.0, axis)
+    return ret
+
+
+#always succeed
+def add_newdoc(place, obj, doc):
+    """"""
+    Adds documentation to obj which is in module place.
+
+    If doc is a string add it to obj as a docstring
+
+    If doc is a tuple, then the first element is interpreted as
+       an attribute of obj and the second as the docstring
+          (method, docstring)
+
+    If doc is a list, then each element of the list should be a
+       "
+1195095,-9153209241634941543,8,BigQuery,"        id, name = column(""id""), column(""name"")
+        stmt = select([id, name]).select_from(""user"")
+
+    The above statement would produce SQL like::
+
+        SELECT id, name FROM user
+
+    :class:`.ColumnClause` is the immediate superclass of the schema-specific
+    :class:`.Column` object.  While the :class:`.Column` class has all the
+    same capabilities as :class:`.ColumnClause`, the :class:`.ColumnClause`
+    class is usable by itself in those cases where behavioral requirements
+    are limited to simple SQL expression generation.  The object has none of
+    the associations with schema-level"
+6166978,3636658581716653690,24,BigQuery,"Install', 
+                   'ns3::NetDeviceContainer', 
+                   [param('ns3::NodeContainer', 'c')], 
+                   is_const=True)
+    ## waveform-generator-helper.h (module'spectrum'): ns3::NetDeviceContainer ns3::WaveformGeneratorHelper::Install(ns3::Ptr<ns3::Node> node) const [member function]
+    cls.add_method('Install', 
+                   'ns3::NetDeviceContainer', 
+                   [param('ns3::Ptr< ns3::Node >', 'node')], 
+                   is_const=True)
+    ## waveform-"
+378761,-4341360612647468318,75,BigQuery,b1\u59b2\u59b3\u59b4\u59b5\u59b6\u59b7\u59b8\u59b9\u59ba\u59bb\u59bc\u59bd\u59be\u59bf\u59c0\u59c1\u59c2\u59c3\u59c4\u59c5\u59c6\u59c7\u59c8\u59c9\u59ca\u59cb\u59cc\u59cd\u59ce\u59cf\u59d0\u59d1
+378761,-3612381712483738289,75,BigQuery,\uf6f7\uf6f8\uf6f9\uf6fa\uf6fb\uf6fc\uf6fd\uf6fe\uf6ff\uf700\uf701\uf702\uf703\uf704\uf705\uf706\uf707\uf708\uf709\uf70a\uf70b\uf70c\uf70d\uf70e\uf70f\uf710\uf711\uf712\uf713\uf714\uf715\uf716\uf717\uf718\uf719\uf71a\uf71b\uf71c\uf71d\uf71e\uf
+5984374,-1794888343335359851,9,BigQuery,"')
+@dispatch.add_dispatch_support
+@doc_controls.do_not_generate_docs
+def sin(x):
+  """"""Computes sin of x element-wise.
+
+  Args:
+      x: Tensor or variable.
+
+  Returns:
+      A tensor.
+  """"""
+  return math_ops.sin(x)
+
+
+@keras_export('keras.backend.cos')
+@dispatch.add_dispatch_support
+@doc_controls.do_not_generate_docs
+def cos(x):
+  """"""Computes cos of x element-wise.
+
+  Args:
+      x:"
+378761,-6041084966803777039,75,BigQuery,\u3f43\u3f44\u3f45\u3f46\u3f47\u3f48\u3f49\u3f4a\u3f4b\u3f4c\u3f4d\u3f4e\u3f4f\u3f50\u3f51\u3f52\u3f53\u3f54\u3f55\u3f56\u3f57\u3f58\u3f59\u3f5a\u3f5b\u3f5c\u3f5d\u3f5
+5347703,-3081178924980706794,6,BigQuery,".HtmlSelection_GetFromPos(*args, **kwargs)
+
+    def GetToPos(*args, **kwargs):
+        """"""GetToPos(self) -> Point""""""
+        return _html.HtmlSelection_GetToPos(*args, **kwargs)
+
+    def GetFromPrivPos(*args, **kwargs):
+        """"""GetFromPrivPos(self) -> Point""""""
+        return _html.HtmlSelection_GetFromPrivPos(*args, **kwargs)
+
+    def GetToPrivPos(*args, **kwargs):
+        """"""GetToPrivPos(self) -> Point""""""
+        return _html.HtmlSelection_Get"
+4726242,5618826356886201237,11,BigQuery,", url, body, headers):
+        body = self.fixtures.load('zone_does_not_exist.json')
+
+        return httplib.OK, body, {}, httplib.responses[httplib.OK]
+
+    def _api_v2_zone_CREATE_ZONE_SUCCESS(self, method,
+                                         url, body, headers):
+        body = self.fixtures.load('create_zone_success.json')
+
+        return httplib.OK, body, {}, httplib.responses[httplib.OK]
+
+    def _api_v2_zone_CREATE_ZONE_"
+378761,5118366388989162235,75,BigQuery,37c2\u37c3\u37c4\u37c5\u37c6\u37c7\u37c8\u37c9\u37ca\u37cb\u37cc\u37cd\u37ce\u37cf\u37d0\u37d1\u37d2\u37d3\u37d4\u37d5\u37d6\u37d7\u37d8\u37d9\u37da\u37db\u37dc\u37dd\u37de\u37df\u37e0\u37e1\u37e
+6773063,-4335084430011833807,24,BigQuery," 'header'), param('uint32_t','size')])
+    ## packet-metadata.h (module 'network'): void ns3::PacketMetadata::AddPaddingAtEnd(uint32_t end) [member function]
+    cls.add_method('AddPaddingAtEnd', 
+                   'void', 
+                   [param('uint32_t', 'end')])
+    ## packet-metadata.h (module 'network'): void ns3::PacketMetadata::AddTrailer(ns3::Trailer const & trailer, uint32_t size) [member function]
+    cls.add_method('AddTrailer', 
+"
+4909263,2958647386671545091,28,BigQuery,"056d', 0x1d400:u'a', 0x1d401:u'b',
+0x1d402:u'c', 0x1d403:u'd', 0x1d404:u'e', 0x1d405:u'f',
+0x1d406:u'g', 0x1d407:u'h', 0x1d408:u'i', 0x1d409:u'j',
+0x1d40a:u'k', 0x1d40b:u'l', 0x1d40c:u'm', 0x1d40d:u'"
+6197705,-8824278587834978644,117,BigQuery,"%d/%Y', '%m/%d/%y', # '2006-10-25', '10/25/2006', '10/25/06'
+    # '%b %d %Y', '%b %d, %Y',            # 'Oct 25 2006', 'Oct 25, 2006'
+    # '%d %b %Y', '%d %b, %Y',            # '25 Oct 2006', '25 Oct, 2006'
+    # '%B %d %Y', '%B %d, %Y',            # 'October 25 2006', 'October 25, 2006'
+    # '%d %B %Y', '%"
+6773063,6520187825928758349,24,BigQuery,"## random-variable-stream.h (module 'core'): uint32_t ns3::NormalRandomVariable::GetInteger(uint32_t mean, uint32_t variance, uint32_t bound) [member function]
+    cls.add_method('GetInteger', 
+                   'uint32_t', 
+                   [param('uint32_t','mean'), param('uint32_t', 'variance'), param('uint32_t', 'bound')])
+    ## random-variable-stream.h (module 'core'): double ns3::NormalRandomVariable::GetValue() [member function]
+    cls.add_method('GetValue',"
+378761,-7048894231597095194,75,BigQuery,\u426a\u426b\u426c\u426d\u426e\u426f\u4270\u4271\u4272\u4273\u4274\u4275\u4276\u4277\u4278\u4279\u427a\u427b\u427c\u427d\u427e\u427f\u4280\u4281\u4282\u4283\u4284\u4285\u4286\u4287\u4288\u4289\u428a\u428b\u428c\u428d\u428e\u
+378761,6664523081830329581,75,BigQuery,\u5e73\u5e74\u5e75\u5e76\u5e77\u5e78\u5e79\u5e7a\u5e7b\u5e7c\u5e7d\u5e7e\u5e7f\u5e80\u5e81\u5e82\u5e83\u5e84\u5e85\u5e86\u5e87\u5e88\u5e89\u5e8a\u5e8b\u5e8c\u5e8d\u5e8
+4303541,-8375457485791129787,309,BigQuery,"##############################################################################
+#
+#    OpenERP, Open Source Management Solution
+#    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
+#    Copyright (C) 2010-TODAY OpenERP S.A. (http://www.openerp.com)
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will"
+756545,7912157465793170160,6,BigQuery,"__(self, parser, parent=None, invokingState=-1):
+            super(AutolevParser.EqualsContext, self).__init__(parent, invokingState)
+            self.parser = parser
+
+
+        def getRuleIndex(self):
+            return AutolevParser.RULE_equals
+
+        def enterRule(self, listener):
+            if hasattr(listener, ""enterEquals""):
+                listener.enterEquals(self)
+
+        def exitRule(self, listener):
+            if hasattr(listener, ""exitEquals""):
+                listener.exitEquals(self)
+
+
+
+
+    def equals(self):"
+378761,-1237803005075659831,75,BigQuery,bd\u69be\u69bf\u69c0\u69c1\u69c2\u69c3\u69c4\u69c5\u69c6\u69c7\u69c8\u69c9\u69ca\u69cb\u69cc\u69cd\u69ce\u69cf\u69d0\u69d1\u69d2\u69d3\u69d4\u69d5\u69d6\u69d7\u69d8\u69d9\u69da\u69db\u69dc\u69dd\
+5197502,-6642703980942335408,31,BigQuery," 'Asia/Tbilisi',
+ 'Asia/Tehran',
+ 'Asia/Thimphu',
+ 'Asia/Tokyo',
+ 'Asia/Tomsk',
+ 'Asia/Ulaanbaatar',
+ 'Asia/Urumqi',
+ 'Asia/Ust-Nera',
+ 'Asia/Vientiane',
+ 'Asia/Vladivostok',
+ 'Asia/Yakutsk',
+ 'Asia/Yangon',
+ 'Asia/Yekaterinburg',
+ 'Asia/Yerevan',
+ 'Atlantic/Azores',
+ 'Atlantic/Bermuda',
+ 'Atlantic/Canary',
+ 'Atlantic/Cape_Verde',"
+4620588,-4467590774947656659,14,BigQuery,"## minstrel-wifi-manager.h (module 'wifi'): ns3::MinstrelWifiManager::MinstrelWifiManager() [constructor]
+    cls.add_constructor([])
+    ## minstrel-wifi-manager.h (module 'wifi'): int64_t ns3::MinstrelWifiManager::AssignStreams(int64_t stream) [member function]
+    cls.add_method('AssignStreams', 
+                   'int64_t', 
+                   [param('int64_t','stream')])
+    ## minstrel-wifi-manager.h"
+378761,4444254770346695728,75,BigQuery,5f74\u5f75\u5f76\u5f77\u5f78\u5f79\u5f7a\u5f7b\u5f7c\u5f7d\u5f7e\u5f7f\u5f80\u5f81\u5f82\u5f83\u5f84\u5f85\u5f86\u5f87\u5f88\u5f89\u5f8a\u5f8b\u5f8c\u5f8d\u5f8e\u5f8f
+6030671,-4575131521411154243,81,BigQuery," relevant on Unix.)
+
+        'export_symbols' is a list of symbols that the shared library will
+        export.  (This appears to be relevant only on Windows.)
+
+        'debug' is as for 'compile()' and 'create_static_lib()', with the
+        slight distinction that it actually matters on most platforms (as
+        opposed to 'create_static_lib()', which includes a 'debug' flag
+        mostly for form's sake).
+
+        'extra_preargs' and 'extra_postargs' are as for 'compile()' (except
+        of course that they supply command-line arguments for the
+        particular linker being"
+5544771,-4380081293178747491,9,BigQuery,":
+            self.identifier = identifier
+        if contribute is None:
+            self.contribute = []
+        else:
+            self.contribute = contribute
+        if metadataSchema is None:
+            self.metadataSchema = []
+        else:
+            self.metadataSchema = metadataSchema
+        self.language = language
+    def factory(*args_, **kwargs_):
+        if metaMetadata.subclass:
+            return metaMetadata.subclass(*args_, **kwargs_)
+        else:
+            return metaMetadata(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def"
+544871,6019097152145239217,9,BigQuery,"t' * ntabs +'' * nspaces + line[raw:]
+        self.set_region(head, tail, chars, lines)
+
+    def untabify_region_event(self, event):
+        head, tail, chars, lines = self.get_region()
+        tabwidth = self._asktabwidth()
+        if tabwidth is None: return
+        for pos in range(len(lines)):
+            lines[pos] = lines[pos].expandtabs(tabwidth)
+        self.set_region(head, tail, chars, lines)
+
+    def toggle_tabs_event(self, event):
+        if self"
+378761,7683872517104541061,75,BigQuery,4\uc6e5\uc6e6\uc6e7\uc6e8\uc6e9\uc6ea\uc6eb\uc6ec\uc6ed\uc6ee\uc6ef\uc6f0\uc6f1\uc6f2\uc6f3\uc6f4\uc6f5\uc6f6\uc6f7\uc6f8\uc6f9\uc6fa\uc6fb\uc6fc\uc6fd\uc6fe\uc6ff\uc700\uc701\uc702\uc703\uc704\uc705\uc706\uc707\uc
+4559385,8338232356387326929,7,BigQuery," Chebyshev series coefficients representing their product.
+
+    See Also
+    --------
+    chebadd, chebsub, chebdiv, chebpow
+
+    Notes
+    -----
+    In general, the (polynomial) product of two C-series results in terms
+    that are not in the Chebyshev polynomial basis set.  Thus, to express
+    the product as a C-series, it is typically necessary to ""reproject""
+    the product onto said basis set, which typically produces
+    ""unintuitive live"" (but correct) results; see Examples section below.
+
+    Examples
+    --------
+    >>> from numpy.polynomial import chebys"
+378761,2610684205330423044,75,BigQuery,u4d53\u4d54\u4d55\u4d56\u4d57\u4d58\u4d59\u4d5a\u4d5b\u4d5c\u4d5d\u4d5e\u4d5f\u4d60\u4d61\u4d62\u4d63\u4d64\u4d65\u4d66\u4d67\u4d68\u4d69\u4d6a\u4d6b\u4d6c\u4d6d\u4d6e
+1680404,-905579477473342798,46,BigQuery,"()
+            self._writers = set()
+
+        def register(self, fileobj, events, data=None):
+            key = super(SelectSelector, self).register(fileobj, events, data)
+            if events & EVENT_READ:
+                self._readers.add(key.fd)
+            if events & EVENT_WRITE:
+                self._writers.add(key.fd)
+            return key
+
+        def unregister(self, fileobj):
+            key = super(SelectSelector, self).unregister(fileobj)
+            self._readers.discard(key.fd)
+            self._writers.discard(key.fd)"
+2862961,-4969919950469405358,38,BigQuery,"
+    ## event-id.h (module 'core'): ns3::EventId [class]
+    module.add_class('EventId', import_from_module='ns.core')
+    ## hash.h (module 'core'): ns3::Hasher [class]
+    module.add_class('Hasher', import_from_module='ns.core')
+    ## inet6-socket-address.h (module 'network'): ns3::Inet6SocketAddress [class]
+    module.add_class('Inet6SocketAddress', import_from_module='ns.network')
+    ## inet6-socket-address.h ("
+453645,-1055391968851839308,7,BigQuery," hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the ""Software""), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF"
+3332938,-1394549090111212287,227,BigQuery," & Langford, J.C. A global geometric
+           framework for nonlinear dimensionality reduction. Science 290 (5500)
+    """"""
+
+    def __init__(self, n_neighbors=5, n_components=2, eigen_solver='auto',
+                 tol=0, max_iter=None, path_method='auto',
+                 neighbors_algorithm='auto'):
+
+        self.n_neighbors = n_neighbors
+        self.n_components = n_components
+        self.eigen_solver = eigen_solver
+        self.tol = tol
+        self.max"
+271691,-2201108807704914495,7,BigQuery,"/or modify
+# it under the terms of the GNU Affero General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# Booktype is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with Booktype.  If not, see <http://www.gnu.org/lic"
+5544759,340294704730093193,9,BigQuery," [
+i(0,0,'WET'),
+i(3600,0,'CET'),
+i(7200,3600,'CEST'),
+i(3600,0,'CET'),
+i(7200,3600,'CEST'),
+i(3600,0,'CET'),
+i(7200,3600,'CEST'),
+i(3600,0,'CET'),
+i(7200,3600,'CEST'),
+i(3600,0,'CET'),
+i(7200,3600,'CEST'),
+i(3600,0,'CET'),
+i(7200,3600,'CEST'),
+"
+5878534,9016169891442503390,28,BigQuery," keyword arg ""verbose"" prints lots of stuff if true, prints
+    only failures if false; by default, it's true iff ""-v"" is in sys.argv.
+
+    Optional keyword arg ""report"" prints a summary at the end when true,
+    else prints nothing at the end.  In verbose mode, the summary is
+    detailed, else very brief (in fact, empty if all tests passed).
+
+    Optional keyword arg ""optionflags"" or's together module constants,
+    and defaults to 0.  Possible values (see the docs for details):
+
+        DONT_ACCEPT_TRUE_FOR_1
+        DONT_ACCEPT_BLANKLINE"
+2862961,-3265491935606637496,38,BigQuery,"    cls.add_binary_comparison_operator('!=')
+    cls.add_output_stream_operator()
+    cls.add_binary_comparison_operator('==')
+    ## ipv4-interface-address.h (module 'internet'): ns3::Ipv4InterfaceAddress::Ipv4InterfaceAddress() [constructor]
+    cls.add_constructor([])
+    ## ipv4-interface-address.h (module 'internet'): ns3::Ipv4InterfaceAddress::Ipv4InterfaceAddress(ns3::Ipv4Address local, ns3::Ipv4Mask"
+2665144,-7563368202422772102,16,BigQuery,"esian product.
+
+Calculus
+--------
+- `lagder` -- differentiate a Laguerre series.
+- `lagint` -- integrate a Laguerre series.
+
+Misc Functions
+--------------
+- `lagfromroots` -- create a Laguerre series with specified roots.
+- `lagroots` -- find the roots of a Laguerre series.
+- `lagvander` -- Vandermonde-like matrix for Laguerre polynomials.
+- `lagvander2d` -- Vandermonde-like matrix for 2D power series.
+- `lagvander3d` -- Vandermonde-like matrix for 3D power series"
+378761,3759267044791584683,75,BigQuery,\ue9b6\ue9b7\ue9b8\ue9b9\ue9ba\ue9bb\ue9bc\ue9bd\ue9be\ue9bf\ue9c0\ue9c1\ue9c2\ue9c3\ue9c4\ue9c5\ue9c6\ue9c7\ue9c8\ue9c9\ue9ca\ue9cb\ue9cc\ue9cd\ue9ce\ue9cf\ue9d0\ue9d1\ue9d2\ue9d3\ue9d4\ue9d5\ue
+6151163,-3464752507245136073,7,BigQuery," script, do not edit!'''
+from OpenGL import platform as _p, arrays
+# Code generation uses this
+from OpenGL.raw.GL import _types as _cs
+# End users want this...
+from OpenGL.raw.GL._types import *
+from OpenGL.raw.GL import _errors
+from OpenGL.constant import Constant as _C
+
+import ctypes
+_EXTENSION_NAME = 'GL_NV_occlusion_query'
+def _f( function ):
+    return _p.createFunction( function,_p.PLATFORM.GL,'GL_NV_occlusion_query',error_checker=_errors._error_checker)
+GL"
+4483819,1318385255521412020,14,BigQuery,"""OnBuild"": null,
+            ""OpenStdin"": false,
+            ""StdinOnce"": false,
+            ""Tty"": false,
+            ""User"": """",
+            ""Volumes"": {
+                ""/tmp/lnmp/nginx-sites/logs/"": {}
+            },
+           ...
+    }'
+'''
+
+import traceback
+
+try:
+    from docker.errors import DockerException
+except ImportError:
+    # missing Docker SDK for Python handled in ansible.module_utils.docker.common
+    pass
+
+from ansible.module_utils.docker.common import (
+    AnsibleDockerClient,
+    "
+1922155,7393273331756534120,9,BigQuery,"ension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='protobuf_test_messages.proto2.TestAllTypesProto2.MapSfixed64Sfixed64Entry.value', index=1,
+      number=2, type=16, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None"
+3802102,6490744078869155981,6,BigQuery,"
+    private = 1
+    projectPrivate = 2
+    publicRead = 3
+    publicReadWrite = 4
+
+  class PredefinedDefaultObjectAclValueValuesEnum(_messages.Enum):
+    r""""""Apply a predefined set of default object access controls to this
+    bucket.
+
+    Values:
+      authenticatedRead: Object owner gets OWNER access, and
+        allAuthenticatedUsers get READER access.
+      bucketOwnerFullControl: Object owner gets OWNER access, and project team
+        owners get OWNER access.
+      bucketOwnerRead: Object owner gets OWNER access, and project team owners
+        get READER access.
+      private: Object"
+378761,1381649865792591455,75,BigQuery,b76\u6b77\u6b78\u6b79\u6b7a\u6b7b\u6b7c\u6b7d\u6b7e\u6b7f\u6b80\u6b81\u6b82\u6b83\u6b84\u6b85\u6b86\u6b87\u6b88\u6b89\u6b8a\u6b8b\u6b8c\u6b8d\u6b8e\u6b8f\u6b90\u6b91\
+5801705,-5726172410022809237,6,BigQuery,"del__ = lambda self : None;
+modbus_req_report_slaveid_swigregister = _TCPModbusClient.modbus_req_report_slaveid_swigregister
+modbus_req_report_slaveid_swigregister(modbus_req_report_slaveid)
+
+class modbus_reply_read_reg(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, modbus_reply_read_reg, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda"
+6773063,6062344115188909758,24,BigQuery,"')])
+    ## nix-vector.h (module 'network'): uint32_t ns3::NixVector::BitCount(uint32_t numberOfNeighbors) const [member function]
+    cls.add_method('BitCount', 
+                   'uint32_t', 
+                   [param('uint32_t', 'numberOfNeighbors')], 
+                   is_const=True)
+    ## nix-vector.h (module 'network'): ns3::Ptr<ns3::NixVector> ns3::NixVector::Copy() const [member function]
+    cls.add_method('Copy', 
+                   'ns"
+378761,6318630787095681975,75,BigQuery,40cb\u40cc\u40cd\u40ce\u40cf\u40d0\u40d1\u40d2\u40d3\u40d4\u40d5\u40d6\u40d7\u40d8\u40d9\u40da\u40db\u40dc\u40dd\u40de\u40df\u40e0\u40e1\u40e2\u40e3\u40e4\u40e5\u40e6\u40e7\u40e8\u40e9\u40ea\u40eb
+6788190,328064013828983692,21,BigQuery," x):
+        """"""Sets value at each (i, j) to x
+
+        Here (i,j) index major and minor respectively.
+        """"""
+        M, N = self._swap(self.shape)
+
+        def check_bounds(indices, bound):
+            idx = indices.max()
+            if idx >= bound:
+                raise IndexError('index (%d) out of range (>= %d)' %
+                                 (idx, bound))
+            idx = indices.min()
+            if idx < -bound:
+                raise IndexError('index (%d) out of range (< -%d)' %
+                                 (idx"
+5393413,-6447407234167683121,7,BigQuery,"print('Reading took %.2f seconds. Calculating took %.2f seconds' % ((t2 - t1), (t4 - t3)),
+          file=sys.stderr)
+
+#
+#  Copyright (c) 2013, Novartis Institutes for BioMedical Research Inc.
+#  All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are
+# met:
+#
+#     * Redistributions of source code must retain the above copyright
+#       notice, this list of conditions and the following disclaimer.
+#     * Redistributions in binary form"
+6212165,235020778104298793,11,BigQuery,"s.superuser = User.objects.create_superuser(username='super', password='secret', email='super@example.com')
+        cls.s1 = Section.objects.create(name='Test section')
+        cls.a1 = Article.objects.create(
+            content='<p>Middle content</p>', date=datetime.datetime(2008, 3, 18, 11, 54, 58), section=cls.s1
+        )
+        cls.a2 = Article.objects.create(
+            content='<p>Oldest content</p>', date=datetime.datetime(2000, 3, 18, 11,"
+5197502,9033476809180772630,31,BigQuery,"Indian/Kerguelen',
+ 'Indian/Mahe',
+ 'Indian/Maldives',
+ 'Indian/Mauritius',
+ 'Indian/Mayotte',
+ 'Indian/Reunion',
+ 'Pacific/Apia',
+ 'Pacific/Auckland',
+ 'Pacific/Bougainville',
+ 'Pacific/Chatham',
+ 'Pacific/Chuuk',
+ 'Pacific/Easter',
+ 'Pacific/Efate',
+ 'Pacific/Enderbury',
+ 'Pacific/Fakaofo',
+ 'Pacific/Fiji',
+ 'Pacific/Funafuti',
+ 'Pacific/Galapagos',
+ 'Pacific/Gambier',
+ 'Pacific/"
+378761,-2444899485921362736,75,BigQuery,\u3abb\u3abc\u3abd\u3abe\u3abf\u3ac0\u3ac1\u3ac2\u3ac3\u3ac4\u3ac5\u3ac6\u3ac7\u3ac8\u3ac9\u3aca\u3acb\u3acc\u3acd\u3ace\u3acf\u3ad0\u3ad1\u3ad2\u3ad3\u3ad4\u3ad5\u3ad6\u3ad7\u3ad8\u3ad9\
+5136130,4534350378331992688,7,BigQuery,"h (module 'core'): ns3::Scheduler::EventKey::m_uid [variable]
+    cls.add_instance_attribute('m_uid', 'uint32_t', is_const=False)
+    return
+
+def register_Ns3SequentialRandomVariable_methods(root_module, cls):
+    ## random-variable-stream.h (module 'core'): static ns3::TypeId ns3::SequentialRandomVariable::GetTypeId() [member function]
+    cls.add_method('GetTypeId', 
+                   'ns3::TypeId', 
+                   [], 
+                   is_static=True)"
+1179863,-67017471709950155,7,BigQuery,".add(_elem47)
+          iprot.readSetEnd()
+        else:
+          iprot.skip(ftype)
+      else:
+        iprot.skip(ftype)
+      iprot.readFieldEnd()
+    iprot.readStructEnd()
+
+  def write(self, oprot):
+    if oprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and self.thrift_spec is not None and fastbinary is not None:
+      oprot.trans.write(fastbinary.encode_binary(self, (self.__class__, self.thrift_spec)))
+      return
+    op"
+6166978,-8730207277053202669,24,BigQuery,"ter > > >', 'ns3::SpectrumConverterMap_t')
+    typehandlers.add_type_alias('std::map< unsigned int, ns3::SpectrumConverter, std::less< unsigned int >, std::allocator< std::pair< unsigned int const, ns3::SpectrumConverter > > >*', 'ns3::SpectrumConverterMap_t*')
+    typehandlers.add_type_alias('std::map< unsigned int, ns3::SpectrumConverter, std::less< unsigned int >, std::allocator< std::pair< unsigned int const, ns3::SpectrumConver"
+378761,2915937776732087637,75,BigQuery,u6722\u6723\u6724\u6725\u6726\u6727\u6728\u6729\u672a\u672b\u672c\u672d\u672e\u672f\u6730\u6731\u6732\u6733\u6734\u6735\u6736\u6737\u6738\u6739\u673a\u673b\u673c\u673d\u673e\u673f\u6740\u6741\u6742\u6743\u6744\u6745\u6746\u67
+3711130,502686483940052109,11,BigQuery,"
+            self._broken_fk_pragma_quotes = (
+                self.dbapi.sqlite_version_info < (3, 6, 14))
+
+    _isolation_lookup = {
+        'READ UNCOMMITTED': 1,
+        'SERIALIZABLE': 0,
+    }
+
+    def set_isolation_level(self, connection, level):
+        try:
+            isolation_level = self._isolation_lookup[level.replace('_','')]
+        except KeyError:
+            raise exc.ArgumentError(
+                ""Invalid value '%s' for isolation_level. ""
+                """
+378761,-4779497925816067292,75,BigQuery,a\uf93b\uf93c\uf93d\uf93e\uf93f\uf940\uf941\uf942\uf943\uf944\uf945\uf946\uf947\uf948\uf949\uf94a\uf94b\uf94c\uf94d\uf94e\uf94f\uf950\uf951\uf952\uf953\uf954\uf955\uf956\uf957\uf958\uf959\uf95a\uf95b\uf95c\uf95d\uf95e\uf95f\uf960\uf961\uf
+378761,-7547240492107848106,75,BigQuery,1610\u1611\u1612\u1613\u1614\u1615\u1616\u1617\u1618\u1619\u161a\u161b\u161c\u161d\u161e\u161f\u1620\u1621\u1622\u1623\u1624\u1625\u1626\u1627\u1628\u1629\u162a\u162b\u162c\u162d\u162e\u162f\u1630\u1631\u1632\u1633\u1634\u1635
+5137002,6069400097431580777,50,BigQuery,", a.__iadd__, ""bad"")
+
+    def test_mul(self):
+        a = 5*array.array(self.typecode, self.example)
+        self.assertEqual(
+            a,
+            array.array(self.typecode, 5*self.example)
+        )
+
+        a = array.array(self.typecode, self.example)*5
+        self.assertEqual(
+            a,
+            array.array(self.typecode, self.example*5)
+        )
+
+        a = 0*array.array(self.typecode, self.example)
+        self.assertEqual(
+"
+2149567,1874151720519445191,9,BigQuery,"(1980,10,26,7,0,0),
+d(1981,4,26,8,0,0),
+d(1981,10,25,7,0,0),
+d(1982,4,25,8,0,0),
+d(1982,10,31,7,0,0),
+d(1983,4,24,8,0,0),
+d(1983,10,30,7,0,0),
+d(1984,4,29,8,0,0),
+d(1984,10,28,7,0,0),
+d(1985,4,28,8,0,0),
+d"
+1149724,4713573998932752558,8,BigQuery,"if c == 0:
+            c = self.compare_total(other)
+
+        if c == -1:
+            ans = self
+        else:
+            ans = other
+
+        return ans._fix(context)
+
+    def _isinteger(self):
+        """"""Returns whether self is an integer""""""
+        if self._is_special:
+            return False
+        if self._exp >= 0:
+            return True
+        rest = self._int[self._exp:]
+        return rest == '0'*len(rest)
+
+    def _iseven(self):
+        """"""Returns True if self is even.  Assumes self is an integer.""""""
+        if"
+1664238,-2814574622000963704,6,BigQuery,"# Write everything out
+            self.writeObject(fontdictObject, fontdict)
+            self.writeObject(fontdescObject, descriptor)
+            self.writeObject(widthsObject, widths)
+            self.writeObject(charprocsObject, charprocs)
+
+            return fontdictObject
+
+        def embedTTFType42(font, characters, descriptor):
+            """"""The Type 42-specific part of embedding a Truetype font""""""
+            fontdescObject = self.reserveObject('font descriptor')
+            cidFontDictObject = self.reserveObject('CID font dictionary')
+            type0FontDictObject = self.reserveObject('"
+4620588,-8421113772908369601,14,BigQuery,"-loss-model.h (module 'propagation'): double ns3::FixedRssLossModel::DoCalcRxPower(double txPowerDbm, ns3::Ptr<ns3::MobilityModel> a, ns3::Ptr<ns3::MobilityModel> b) const [member function]
+    cls.add_method('DoCalcRxPower', 
+                   'double', 
+                   [param('double', 'txPowerDbm'), param('ns3::Ptr< ns3::MobilityModel >', 'a'), param('ns3::Ptr< ns3::MobilityModel >', 'b')], 
+                   is_const"
+3453320,1287876923377441289,11,BigQuery,"__new__(cls)
+            self.__setstate(year)
+            return self
+        _check_date_fields(year, month, day)
+        self = object.__new__(cls)
+        self.__year = year
+        self.__month = month
+        self.__day = day
+        return self
+
+    # Additional constructors
+
+    def fromtimestamp(cls, t):
+        ""Construct a date from a POSIX timestamp (like time.time()).""
+        y, m, d, hh, mm, ss, weekday, jday, dst = _time.localtime(t)
+        return cls(y"
+378761,-5459558469054438694,75,BigQuery,c6b\u3c6c\u3c6d\u3c6e\u3c6f\u3c70\u3c71\u3c72\u3c73\u3c74\u3c75\u3c76\u3c77\u3c78\u3c79\u3c7a\u3c7b\u3c7c\u3c7d\u3c7e\u3c7f\u3c80\u3c81\u3c82\u3c83\u3c84\u3c85\u3c86\u
+6515695,-7440500698589276176,37,BigQuery,"multi_version and not self.no_report:
+            msg += '\n' + self.__mv_warning
+            if self.install_dir not in map(normalize_path, sys.path):
+                msg += '\n' + self.__id_warning
+
+        eggloc = dist.location
+        name = dist.project_name
+        version = dist.version
+        extras = ''  # TODO: self.report_extras(req, dist)
+        return msg % locals()
+
+    __editable_msg = textwrap.dedent(""""""
+        Extracted editable version of %(spec)s to %(dirname)"
+1801124,-5299081264266240116,12,BigQuery," to ModelAdmin.formfield_overrides.
+
+FORMFIELD_FOR_DBFIELD_DEFAULTS = {
+    models.DateTimeField: {
+        'form_class': forms.SplitDateTimeField,
+        'widget': widgets.AdminSplitDateTime
+    },
+    models.DateField: {'widget': widgets.AdminDateWidget},
+    models.TimeField: {'widget': widgets.AdminTimeWidget},
+    models.TextField: {'widget': widgets.AdminTextareaWidget},
+    models.URLField: {'widget': widgets.AdminURLFieldWidget},
+    models.IntegerField: {'widget': widgets.AdminIntegerFieldWidget"
+514718,3339072336767172430,15,BigQuery,"
+        ndtype = float
+        assert_equal(easy_dtype(ndtype), np.dtype(float))
+        # As string w/o names
+        ndtype = ""i4, f8""
+        assert_equal(easy_dtype(ndtype),
+                     np.dtype([('f0', ""i4""), ('f1', ""f8"")]))
+        # As string w/o names but different default format
+        assert_equal(easy_dtype(ndtype, defaultfmt=""field_%03i""),
+                     np.dtype([('field_000', ""i4""), ('field_001', ""f8"")]"
+2210638,-2666512718776600606,12,BigQuery,"::empty, ns3::empty >', u'ns3::McpsDataConfirmCallback')
+    typehandlers.add_type_alias(u'ns3::Callback< void, ns3::McpsDataConfirmParams, ns3::empty, ns3::empty, ns3::empty, ns3::empty, ns3::empty, ns3::empty, ns3::empty, ns3::empty >*', u'ns3::McpsDataConfirmCallback*')
+    typehandlers.add_type_alias(u'ns3::Callback< void, ns3::McpsDataConfirmParams, ns3::empty, ns3::empty,"
+6773063,-5153614559138622313,24,BigQuery,"
+    ## attribute.h (module 'core'): ns3::Ptr<ns3::AttributeValue> ns3::AttributeChecker::CreateValidValue(ns3::AttributeValue const & value) const [member function]
+    cls.add_method('CreateValidValue', 
+                   'ns3::Ptr< ns3::AttributeValue >', 
+                   [param('ns3::AttributeValue const &', 'value')], 
+                   is_const=True)
+    ## attribute.h (module 'core'): std::string ns3::AttributeChecker::GetUnderlyingTypeInformation() const [member function]
+    cls.add_method('GetUnderlyingType"
+5953544,-8621558465027128066,6,BigQuery,"ix = namePrefix
+    self.maxTokens = maxTokens
+
+  def read(self, iprot):
+    if iprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None and fastbinary is not None:
+      fastbinary.decode_binary(self, iprot.trans, (self.__class__, self.thrift_spec))
+      return
+    iprot.readStructBegin()
+    while True:
+      (fname, ftype, fid) = iprot.readFieldBegin()
+"
+575297,-3411276071541445202,9,BigQuery,"', Text),
+            (r'<!--', Comment),
+            (r'//.*?\n', Comment.Single),
+            (r'/\*.*?\*/', Comment.Multiline)
+        ],
+       'slashstartsregex': [
+            include('commentsandwhitespace'),
+            (r'/(\\.|[^[/\\\n]|\[(\\.|[^\]\\\n])*])+/'
+             r'([gim]+\b|\B)', String.Regex, '#pop'),
+            (r'(?=/)', Text, ('#pop', 'badregex')"
+5544771,1479500878533235650,9,BigQuery,"_processed, namespace_, name_='roleValue')
+        if self.hasContent_():
+            outfile.write('>')
+            outfile.write(str(self.valueOf_).encode(ExternalEncoding))
+            self.exportChildren(outfile, level + 1, namespace_, name_, pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespace_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def"
+1179863,2043879589411355444,7,BigQuery,"other, self.__class__) and self.__dict__ == other.__dict__
+
+  def __ne__(self, other):
+    return not (self == other)
+
+class TSentryPrivilege(object):
+  """"""
+  Attributes:
+   - component
+   - serviceName
+   - authorizables
+   - action
+   - createTime
+   - grantorPrincipal
+   - grantOption
+  """"""
+
+  thrift_spec = (
+    None, # 0
+    (1, TType.STRING, 'component', None, None, ), # 1
+    (2, TType.STRING,'serviceName', None, None,"
+1861677,2063195234929575157,11,BigQuery,"x005d, 0x005e, 0x005f,
+  0x0060, 0x0061, 0x0062, 0x0063, 0x0064, 0x0065, 0x0066, 0x0067,
+  0x0068, 0x0069, 0x006a, 0x006b, 0x006c, 0x006d, 0x006e, 0x006f,
+  0x0070, 0x0071, 0x0072, 0x0073, 0x0074, 0x0075, 0x0076, 0x0077,
+  0x0078, 0x00"
+5136130,6502494982129117551,7,BigQuery,"', 
+                   [param('ns3::Time const &', 'time')], 
+                   is_static=True)
+    return
+
+def register_Ns3SystemCondition_methods(root_module, cls):
+    ## system-condition.h (module 'core'): ns3::SystemCondition::SystemCondition(ns3::SystemCondition const & arg0) [copy constructor]
+    cls.add_constructor([param('ns3::SystemCondition const &', 'arg0')])
+    ## system-condition.h (module 'core'): ns3::SystemCondition::SystemCondition() [constructor]
+    cls.add_constructor([])"
+378761,-4605096970426761634,75,BigQuery,\u6a7c\u6a7d\u6a7e\u6a7f\u6a80\u6a81\u6a82\u6a83\u6a84\u6a85\u6a86\u6a87\u6a88\u6a89\u6a8a\u6a8b\u6a8c\u6a8d\u6a8e\u6a8f\u6a90\u6a91\u6a92\u6a93\u6a94\u6a95\u6a96\u6a97
+2271380,-1468561869404723790,9,BigQuery," ""
+                ""when ""
+                ""used with get_resource_filename. Consider a more secure ""
+                ""location (set with.set_extraction_path or the ""
+                ""PYTHON_EGG_CACHE environment variable)."" % path
+            )
+            warnings.warn(msg, UserWarning)
+
+    def postprocess(self, tempname, filename):
+        """"""Perform any platform-specific postprocessing of `tempname`
+
+        This is where Mac header rewrites should be done; other platforms don't
+        have anything special they should do.
+
+        Resource providers should call this method ONLY after successfully
+        extracting a compressed resource.  "
+1104202,-8942838568090713421,6,BigQuery,"_types' %
+                    self.__protorpc_package)
+            if type_info.type_name.startswith('extra_types.'):
+                self.__AddImport(
+                    'from %s import extra_types' % self.__base_files_package)
+            return type_info
+
+        if type_name in self.PRIMITIVE_TYPE_INFO_MAP:
+            type_info = self.PRIMITIVE_TYPE_INFO_MAP[type_name]
+            if type_info.type_name.startswith('extra_types.'):
+                self.__AddImport(
+                    'from %s import extra_"
+2196068,-1983342768019493317,115,BigQuery,"#
+#    OpenERP, Open Source Business Applications
+#    Copyright (C) 2004-2012 OpenERP S.A. (<http://openerp.com>).
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR"
+1029243,2332453562944378992,8,BigQuery,".add_method('IsBroadcast', 
+                   'bool', 
+                   [], 
+                   is_const=True, is_virtual=True)
+    ## virtual-net-device.h: bool ns3::VirtualNetDevice::IsLinkUp() const [member function]
+    cls.add_method('IsLinkUp', 
+                   'bool', 
+                   [], 
+                   is_const=True, is_virtual=True)
+    ## virtual-net-device.h: bool ns3::VirtualNetDevice::IsMulticast() const [member function]
+    cls.add_method('IsMulticast', 
+                   'bool"
+5621125,4313843680118810163,28,BigQuery,"I32:
+          self.error_time_secs = iprot.readI32();
+        else:
+          iprot.skip(ftype)
+      else:
+        iprot.skip(ftype)
+      iprot.readFieldEnd()
+    iprot.readStructEnd()
+
+  def write(self, oprot):
+    if oprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and self.thrift_spec is not None and fastbinary is not None:
+      oprot.trans.write(fastbinary.encode_binary(self, (self.__class__, self.thrift_spec)))
+"
+6166978,251406471377030368,24,BigQuery,"_module['ns3::RandomVariableStream'])
+    ## aloha-noack-mac-header.h (module'spectrum'): ns3::AlohaNoackMacHeader [class]
+    module.add_class('AlohaNoackMacHeader', parent=root_module['ns3::Header'])
+    ## attribute.h (module 'core'): ns3::AttributeAccessor [class]
+    module.add_class('AttributeAccessor', import_from_module='ns.core', parent=root_module['ns3::SimpleRefCount< ns3::AttributeAccessor, ns3::empty, ns3::DefaultDeleter<ns3::"
+4574809,-5131440182855782067,9,BigQuery,"TER IE
+	0x00e6: 0x0436,	# CYRILLIC SMALL LETTER ZHE
+	0x00e7: 0x0437,	# CYRILLIC SMALL LETTER ZE
+	0x00e8: 0x0438,	# CYRILLIC SMALL LETTER I
+	0x00e9: 0x0439,	# CYRILLIC SMALL LETTER SHORT I
+	0x00ea: 0x043a,	# CYRILLIC SMALL LETTER KA
+	0x00eb: 0x043b,	# CYRILLIC SMALL LETTER EL
+"
+7500897,2662222878167481575,94,BigQuery," no concept of ""escaping"", to display one of
+    the bits used in template tags, you must use the ``{% templatetag %}`` tag.
+
+    The argument tells which template bit to output:
+
+        ==================  =======
+        Argument            Outputs
+        ==================  =======
+        ``openblock``       ``{%``
+        ``closeblock``      ``%}``
+        ``openvariable``    ``{{``
+        ``closevariable``   ``}}``
+        ``openbrace``       ``{``
+        ``closebrace``      ``}``
+        ``opencomment``     ``{#``
+        ``closecomment``    ``"
+5621299,6763300643237023227,72,BigQuery,"ittest_reportflags = flags
+    return old
+
+
+class DocTestCase(unittest.TestCase):
+
+    def __init__(self, test, optionflags=0, setUp=None, tearDown=None,
+                 checker=None):
+
+        unittest.TestCase.__init__(self)
+        self._dt_optionflags = optionflags
+        self._dt_checker = checker
+        self._dt_test = test
+        self._dt_setUp = setUp
+        self._dt_tearDown = tearDown
+
+    def setUp(self):
+        test = self._dt_test
+
+        if self._dt"
+817976,3116770146447920479,129,BigQuery,"            request=request,
+            session=session,
+            g=g
+        )
+        rv.filters['tojson'] = json.tojson_filter
+        return rv
+
+    def create_global_jinja_loader(self):
+        """"""Creates the loader for the Jinja2 environment.  Can be used to
+        override just the loader and keeping the rest unchanged.  It's
+        discouraged to override this function.  Instead one should override
+        the :meth:`jinja_loader` function instead.
+
+        The global loader dispatches between the loaders of the application
+        and the individual blueprints.
+
+       .. versionadded::"
+5075938,-5085569176802469944,18,BigQuery," palettes or
+        transparency information.
+
+        Like the :meth:`read` method this method returns a 4-tuple:
+
+        (*width*, *height*, *pixels*, *meta*)
+
+        This method normally returns pixel values with the bit depth
+        they have in the source image, but when the source PNG has an
+        ``sBIT`` chunk it is inspected and can reduce the bit depth of
+        the result pixels; pixel values will be reduced according to
+        the bit depth specified in the ``sBIT`` chunk (PNG nerds should
+        note a single result bit depth is used for all channels; the
+        maximum of the ones specified in the ``sBIT`` chunk"
+5923343,1823644353375397168,8,BigQuery,"13, cradius)
+            sketch.setDatum(15, cdepth)
+            if sketch.ExternalGeometry[1]!= (support,  elements[0]):
+                # Update the external geometry references
+                angle = sketch.Constraints[12].Value
+                sketch.delConstraint(19)
+                sketch.delConstraint(18)
+                sketch.delConstraint(17)
+                sketch.delConstraint(16)
+                sketch.delConstraint(15)
+                sketch.delConstraint(14)
+                sketch.delCon"
+7015701,-4586354800894171879,80,BigQuery,".2.1) support requests for URLs containing
+        # userinfo.
+        authority = req.host
+        response = self.http_error_auth_reqed('proxy-authenticate',
+                                          authority, req, headers)
+        self.reset_retry_count()
+        return response
+
+
+# Return n random bytes.
+_randombytes = os.urandom
+
+
+class AbstractDigestAuthHandler(object):
+    # Digest authentication is specified in RFC 2617.
+
+    # XXX The client does not inspect the Authentication-Info header
+    # in a successful response.
+
+    # XXX It should be possible to test this implementation against
+    # a mock server"
+4787232,6437103905086096131,7,BigQuery," c_{02}..., c_{10}, c_{11}, c_{12}...
+
+    and ``np.dot(V, c.flat)`` and ``hermval2d(x, y, c)`` will be the same
+    up to roundoff. This equivalence is useful both for least squares
+    fitting and for the evaluation of a large number of 2-D Hermite
+    series of the same degrees and sample points.
+
+    Parameters
+    ----------
+    x, y : array_like
+        Arrays of point coordinates, all of the same shape. The dtypes
+        will be converted to either float64 or complex128 depending on
+        whether any of the elements"
+378761,6922135472065212956,75,BigQuery,2525\u2526\u2527\u2528\u2529\u252a\u252b\u252c\u252d\u252e\u252f\u2530\u2531\u2532\u2533\u2534\u2535\u2536\u2537\u2538\u2539\u253a\u253b\u253c\u253d\u253e\u253f\u2540\u2541\u2542\u2543\u2544\u2545\u2546\u2547\u2548\u2549\u254a
+4620588,-9087262619036725604,14,BigQuery,"])
+    return
+
+def register_Ns3TypeId_methods(root_module, cls):
+    cls.add_binary_comparison_operator('!=')
+    cls.add_binary_comparison_operator('<')
+    cls.add_output_stream_operator()
+    cls.add_binary_comparison_operator('==')
+    ## type-id.h (module 'core'): ns3::TypeId::TypeId(char const * name) [constructor]
+    cls.add_constructor([param('char const *', 'name')])
+    ## type-id.h ("
+1786173,-9124453932280594343,14,BigQuery," const &', 'arg0')])
+    ## socket-factory.h (module 'network'): ns3::SocketFactory::SocketFactory() [constructor]
+    cls.add_constructor([])
+    ## socket-factory.h (module 'network'): ns3::Ptr<ns3::Socket> ns3::SocketFactory::CreateSocket() [member function]
+    cls.add_method('CreateSocket', 
+                   'ns3::Ptr< ns3::Socket >', 
+                   [], 
+                   is_pure_virtual=True, is_virtual=True)
+    ## socket-factory.h (module 'network'): static"
+1331325,-7991562460495269625,6,BigQuery,"
+        try:
+            from fortiosapi import FortiOSAPI
+        except ImportError:
+            module.fail_json(msg=""fortiosapi module is required"")
+
+        fos = FortiOSAPI()
+
+        login(module.params, fos)
+        is_error, has_changed, result = fortios_wireless_controller(module.params, fos)
+        fos.logout()
+
+    if not is_error:
+        module.exit_json(changed=has_changed, meta=result)
+    else:
+        module.fail_json(msg=""Error in repo"", meta=result)
+
+
+if __name__ == '__main"
+6591691,5828104655572388520,45,BigQuery,"INIT(&PyType_Type, 0)
+    ""_ast.AST"",
+    sizeof(PyObject),
+    0,
+    0,                       /* tp_dealloc */
+    0,                       /* tp_print */
+    0,                       /* tp_getattr */
+    0,                       /* tp_setattr */
+    0,                       /* tp_reserved */
+    0,                       /* tp_repr */
+    0,                       /* tp_as_number */
+    0,                       /* tp_as_sequence */
+    0,                       /* tp_as_mapping */
+    0,                       /* tp_"
+3361989,5312080510855066631,6,BigQuery," THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
+import operator
+import sys
+import types
+
+__author__ = ""Benjamin Peterson <benjamin@python.org>""
+__version__ = ""1.6.1""
+
+
+# Useful for very coarse version differentiation.
+PY2 = sys.version_info[0] == 2
+PY3 = sys.version_info[0] == 3
+
+if PY3:
+    string_types = str,
+    integer_types = int,
+    class_types = type,
+    text_type = str
+    binary_type = bytes
+
+    MAXSIZE = sys.maxsize"
+5908173,-3498633790475821681,9,BigQuery,"df.take(mask[1:],convert=False) ])
+
+        df = gen_test(900,100)
+        self.assertFalse(df.index.is_unique)
+
+        mask = np.arange(100)
+        result = df.loc[mask]
+        expected = gen_expected(df,mask)
+        assert_frame_equal(result,expected)
+
+        df = gen_test(900000,100000)
+        self.assertFalse(df.index.is_unique)
+
+        mask = np.arange(100000)
+        result = df.loc[mask]
+        expected = gen_expected(df,mask)"
+4332635,-6059106225253076877,6,BigQuery," :class:`~localflavor.us.models.USPostalCodeField`.
+
+   .. versionadded:: 1.1
+
+    """"""
+    description = _(""U.S. ZIP code"")
+
+    def __init__(self, *args, **kwargs):
+        kwargs['max_length'] = 10
+        super(USZipCodeField, self).__init__(*args, **kwargs)
+
+    def formfield(self, **kwargs):
+        defaults = {'form_class': forms.USZipCodeField}
+        defaults.update(kwargs)
+        return super(USZipCodeField, self).formfield(**default"
+4378742,9081981161508511485,17,BigQuery," inserted at every page bottom,
+# using the given strftime format.
+#html_last_updated_fmt = '%b %d, %Y'
+
+# If true, SmartyPants will be used to convert quotes and dashes to
+# typographically correct entities.
+html_use_smartypants = False
+
+# Custom sidebar templates, maps document names to template names.
+#html_sidebars = {}
+
+# Additional templates that should be rendered to pages, maps page names to
+# template names.
+#html_additional_pages = {}
+
+# If false, no module index is generated.
+#html_domain_indices = True
+
+#"
+2771735,895294276828789041,38,BigQuery,"('Murmur3', import_from_module='ns.core', parent=root_module['ns3::Hash::Implementation'])
+
+def register_types_ns3_TracedValueCallback(module):
+    root_module = module.get_root()
+    
+    typehandlers.add_type_alias(u'void ( * ) ( bool, bool ) *', u'ns3::TracedValueCallback::Bool')
+    typehandlers.add_type_alias(u'void ( * ) ( bool, bool ) **', u'ns3::TracedValueCallback::Bool*')
+    typehandlers.add_type_alias("
+4923648,1162630185899356664,7,BigQuery,"
+#'preamble': '',
+}
+
+# Grouping the document tree into LaTeX files. List of tuples
+# (source start file, target name, title, author, documentclass [howto/manual]).
+latex_documents = [
+  ('index', 'Makahiki.tex', u'Makahiki Documentation',
+   u'George Lee, Yongwen Xu, Robert Brewer, Philip Johnson','manual'),
+]
+
+# The name of an image file (relative to this directory) to place at the top of
+# the title page.
+#latex_logo = None
+
+# For ""manual"" documents, if"
+4665874,-8268719407908006324,12,BigQuery,"col_0', 'col_1', 'col_4') VALUES ('row_186', 'val_2', 'val_3', 'val_0', 'val_1', 'val_4');
+INSERT INTO rolling_cf_standard (KEY, 'col_2', 'col_3', 'col_0', 'col_1', 'col_4') VALUES ('row_185', 'val_2', 'val_3', 'val_0', 'val_1', 'val_4');
+INSERT INTO rolling_cf_standard (KEY, 'col_2', 'col_3', 'col_0', 'col_1', 'col_"
+5514998,8304567088232843162,20,BigQuery,"where(True, b, b), r)
+
+    def test_where_with_masked_choice(self):
+        x = arange(10)
+        x[3] = masked
+        c = x >= 8
+        # Set False to masked
+        z = where(c, x, masked)
+        assert_(z.dtype is x.dtype)
+        assert_(z[3] is masked)
+        assert_(z[4] is masked)
+        assert_(z[7] is masked)
+        assert_(z[8] is not masked)
+        assert_(z[9] is not masked)
+        assert_equal(x, z)"
+2832140,-4281906286061380661,12,BigQuery,"1, 3, ""aps.12.01""],
+    [aps12_f, aps12_fp, aps12_fpp, (4,), [1, 100], np.inf, 1.1, 4, ""aps.12.02""],
+    [aps12_f, aps12_fp, aps12_fpp, (5,), [1, 100], np.inf, 1.1, 5, ""aps.12.03""],
+    [aps12_f, aps12_fp, aps12_fpp, (6,), [1, 100], np.inf, 1.1, 6, ""aps.12."
+378761,-8251272072823671697,75,BigQuery,u49e5\u49e6\u49e7\u49e8\u49e9\u49ea\u49eb\u49ec\u49ed\u49ee\u49ef\u49f0\u49f1\u49f2\u49f3\u49f4\u49f5\u49f6\u49f7\u49f8\u49f9\u49fa\u49fb\u49fc\u49fd\u49fe\u49ff\u4a00\u4a01\u4a02\u4a03\u4a04\u4
+4620588,8360392455167261668,14,BigQuery,"-remote-station-manager.h (module 'wifi'): void ns3::WifiRemoteStationManager::PrepareForQueue(ns3::Mac48Address address, ns3::WifiMacHeader const * header, ns3::Ptr<ns3::Packet const> packet, uint32_t fullPacketSize) [member function]
+    cls.add_method('PrepareForQueue', 
+                   'void', 
+                   [param('ns3::Mac48Address', 'address'), param('ns3::WifiMacHeader const *', 'header'), param('ns3::Ptr< ns3::Packet const >', 'packet'), param('uint32"
+5544771,3927622859076354649,9,BigQuery,"return False
+    def export(self, outfile, level, namespace_='', name_='typicalAgeRange', namespacedef_='', pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and'' + namespacedef_ or '', ))
+        already_processed = set()
+        self.exportAttributes(outfile, level, already_processed, namespace_"
+6606202,3720222257229284606,8,BigQuery,"__class__) and self.__dict__ == other.__dict__
+
+  def __ne__(self, other):
+    return not (self == other)
+
+class abandonBlock_result:
+  """"""
+  Attributes:
+   - ouch
+  """"""
+
+  thrift_spec = (
+    None, # 0
+    (1, TType.STRUCT, 'ouch', (ThriftIOException, ThriftIOException.thrift_spec), None, ), # 1
+  )
+
+  def __init__(self, ouch=None,):
+    self.ouch = ouch
+
+  def read(self, iprot):
+    if iprot.__"
+2863065,7257047465223354046,73,BigQuery,"UP_SEP
+from django.db.models.query_utils import Q, refs_aggregate
+from django.utils import six, timezone
+from django.utils.functional import cached_property
+
+
+class Combinable(object):
+    """"""
+    Provides the ability to combine one or two objects with
+    some connector. For example F('foo') + F('bar').
+    """"""
+
+    # Arithmetic connectors
+    ADD = '+'
+    SUB = '-'
+    MUL = '*'
+    DIV = '/'
+    POW = '^'
+    # The following is a quoted % operator - it is quoted because it can"
+1786173,-8573420987726707717,14,BigQuery," const &', 'address')])
+    ## socket.h (module 'network'): void ns3::Socket::SetAcceptCallback(ns3::Callback<bool, ns3::Ptr<ns3::Socket>, ns3::Address const&, ns3::empty, ns3::empty, ns3::empty, ns3::empty, ns3::empty, ns3::empty, ns3::empty> connectionRequest, ns3::Callback<void, ns3::Ptr<ns3::Socket>, ns3::Address const&, ns3::empty, ns3::empty, ns3::empty, ns3::empty, ns3::empty, ns3::empty, ns3::empty>"
+378761,5646047961071504002,75,BigQuery,882\ue883\ue884\ue885\ue886\ue887\ue888\ue889\ue88a\ue88b\ue88c\ue88d\ue88e\ue88f\ue890\ue891\ue892\ue893\ue894\ue895\ue896\ue897\ue898\ue899\ue89a\ue89b\ue89c\ue89d\ue89e\ue89f\ue8a0\ue8a1\ue8a2\ue8a3\ue8a4\ue8a5\ue8a6\ue8a7\ue8
+5878534,855133219411759166,28,BigQuery,".failures, runner.tries
+
+def testfile(filename, module_relative=True, name=None, package=None,
+             globs=None, verbose=None, report=True, optionflags=0,
+             extraglobs=None, raise_on_error=False, parser=DocTestParser()):
+    """"""
+    Test examples in the given file.  Return (#failures, #tests).
+
+    Optional keyword arg ""module_relative"" specifies how filenames
+    should be interpreted:
+
+      - If ""module_relative"" is True (the default), then ""filename""
+         specifies a module-relative path.  By default,"
+378761,6910201709077986481,75,BigQuery,7493\u7494\u7495\u7496\u7497\u7498\u7499\u749a\u749b\u749c\u749d\u749e\u749f\u74a0\u74a1\u74a2\u74a3\u74a4\u74a5\u74a6\u74a7\u74a8\u74a9\u74aa\u74ab\u74ac\u74ad\u74ae\u74af\u74b0\u74b1\u74b2\u74b3
+378761,6620771401760049654,75,BigQuery,d24\u4d25\u4d26\u4d27\u4d28\u4d29\u4d2a\u4d2b\u4d2c\u4d2d\u4d2e\u4d2f\u4d30\u4d31\u4d32\u4d33\u4d34\u4d35\u4d36\u4d37\u4d38\u4d39\u4d3a\u4d3b\u4d3c\u4d3d\u4d3e\u4d3f\
+4468416,-5680465144743119801,6,BigQuery,"""], ""Error: Error loading w3_v18: Wallet requires newer version of Bitcoin Core"")
+        if self.options.descriptors:
+            # Descriptor wallets appear to be corrupted wallets to old software
+            node_v17.assert_start_raises_init_error([""-wallet=w1""], ""Error: wallet.dat corrupt, salvage failed"")
+            node_v17.assert_start_raises_init_error([""-wallet=w2""], ""Error: wallet.dat corrupt, salvage failed"")
+            node_v17.assert_start_raises_init_error([""-wallet=w3""], ""Error: wallet.dat corrupt"
+6773063,5758922267234506551,24,BigQuery,"ref_method='Ref', decref_method='Unref', peekref_method='GetReferenceCount'))
+    ## simple-ref-count.h (module 'core'): ns3::SimpleRefCount<ns3::AttributeValue, ns3::empty, ns3::DefaultDeleter<ns3::AttributeValue> > [class]
+    module.add_class('SimpleRefCount', automatic_type_narrowing=True, import_from_module='ns.core', template_parameters=['ns3::AttributeValue', 'ns3::empty', 'ns3::DefaultDeleter<ns3::AttributeValue>'], parent=root_module['ns"
+6773063,8693521574218899484,24,BigQuery,"'): ns3::NodeContainer::NodeContainer(ns3::NodeContainer const & arg0) [copy constructor]
+    cls.add_constructor([param('ns3::NodeContainer const &', 'arg0')])
+    ## node-container.h (module 'network'): ns3::NodeContainer::NodeContainer() [constructor]
+    cls.add_constructor([])
+    ## node-container.h (module 'network'): ns3::NodeContainer::NodeContainer(ns3::Ptr<ns3::Node> node) [constructor]
+    cls.add_constructor([param('ns3::Ptr< ns3::Node >',"
+1179863,2441444663105416921,7,BigQuery," _size7) = iprot.readSetBegin()
+          for _i11 in xrange(_size7):
+            _elem12 = iprot.readString()
+            self.groups.add(_elem12)
+          iprot.readSetEnd()
+        else:
+          iprot.skip(ftype)
+      else:
+        iprot.skip(ftype)
+      iprot.readFieldEnd()
+    iprot.readStructEnd()
+
+  def write(self, oprot):
+    if oprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and self.thrift_spec is not None and fastbinary"
+7137039,1329014912170369137,14,BigQuery,"PUSHBULLET_NOTIFY_ONSNATCH:
+            self._sendPushbullet(pushbullet_api=None, event=common.notifyStrings[common.NOTIFY_SNATCH], message=ep_name, notificationType=""note"", method=""POST"")
+
+    def notify_download(self, ep_name):
+        if sickbeard.PUSHBULLET_NOTIFY_ONDOWNLOAD:
+            self._sendPushbullet(pushbullet_api=None, event=common.notifyStrings[common.NOTIFY_DOWNLOAD], message=ep_name, notificationType=""note"", method=""POST"")
+
+    def"
+378761,3271666875727589934,75,BigQuery,u2d3e\u2d3f\u2d40\u2d41\u2d42\u2d43\u2d44\u2d45\u2d46\u2d47\u2d48\u2d49\u2d4a\u2d4b\u2d4c\u2d4d\u2d4e\u2d4f\u2d50\u2d51\u2d52\u2d53\u2d54\u2d55\u2d56\u2d57\u2d58\u2d59\u2
+2271380,1278456710612238639,9,BigQuery,"_finders[importer_type] = distribution_finder
+
+
+def find_distributions(path_item, only=False):
+    """"""Yield distributions accessible via `path_item`""""""
+    importer = get_importer(path_item)
+    finder = _find_adapter(_distribution_finders, importer)
+    return finder(importer, path_item, only)
+
+
+def find_eggs_in_zip(importer, path_item, only=False):
+    """"""
+    Find eggs in zip files; possibly multiple nested eggs.
+    """"""
+    if importer.archive.endswith('.whl'"
+1786173,6208739926057245686,14,BigQuery,"void', 
+                   [param('std::string', 'key'), param('std::string', 'variable'), param('int', 'val')], 
+                   is_pure_virtual=True, is_virtual=True)
+    ## data-output-interface.h (module'stats'): void ns3::DataOutputCallback::OutputSingleton(std::string key, std::string variable, uint32_t val) [member function]
+    cls.add_method('OutputSingleton', 
+                   'void', 
+                   [param('std::string', 'key'), param('std::string', 'variable'), param('uint32_t', 'val')], "
+378761,2850883323687766023,75,BigQuery,\u28a5\u28a6\u28a7\u28a8\u28a9\u28aa\u28ab\u28ac\u28ad\u28ae\u28af\u28b0\u28b1\u28b2\u28b3\u28b4\u28b5\u28b6\u28b7\u28b8\u28b9\u28ba\u28bb\u28bc\u28bd\u28be\u28bf\u28c0\u28c1\u28c2\u28c3\u28c4\u
+1786173,6410287419070816738,14,BigQuery,"'): uint32_t ns3::RadiotapHeader::GetAmpduStatusRef() const [member function]
+    cls.add_method('GetAmpduStatusRef', 
+                   'uint32_t', 
+                   [], 
+                   is_const=True)
+    ## radiotap-header.h (module 'network'): uint8_t ns3::RadiotapHeader::GetAntennaNoisePower() const [member function]
+    cls.add_method('GetAntennaNoisePower', 
+                   'uint8_t', 
+                   [], 
+                   is_const=True)
+    ## radiotap"
+1786173,4616575285997508955,14,BigQuery,"network'): ns3::Inet6SocketAddress::Inet6SocketAddress(ns3::Ipv6Address ipv6) [constructor]
+    cls.add_constructor([param('ns3::Ipv6Address', 'ipv6')])
+    ## inet6-socket-address.h (module 'network'): ns3::Inet6SocketAddress::Inet6SocketAddress(uint16_t port) [constructor]
+    cls.add_constructor([param('uint16_t', 'port')])
+    ## inet6-socket-address.h (module 'network'): ns3::Inet6Socket"
+378761,3163020160975890465,75,BigQuery,u1cf6\u1cf7\u1cf8\u1cf9\u1cfa\u1cfb\u1cfc\u1cfd\u1cfe\u1cff\u1dc4\u1dc5\u1dc6\u1dc7\u1dc8\u1dc9\u1dca\u1dcb\u1dcc\u1dcd\u1dce\u1dcf\u1dd0\u1dd1\u1dd2\u1dd3\u1dd4\u1dd5\u1dd6\u1dd7\
+1149724,6486719298235612464,8,BigQuery,"_nan == 2:
+                return context._raise_error(InvalidOperation,'sNaN',
+                                        other)
+            if self_is_nan:
+                return self._fix_nan(context)
+
+            return other._fix_nan(context)
+        return 0
+
+    def _compare_check_nans(self, other, context):
+        """"""Version of _check_nans used for the signaling comparisons
+        compare_signal, __le__, __lt__, __ge__, __gt__.
+
+        Signal InvalidOperation if either self or other is a (quiet
+        or signaling) NaN.  Signaling NaNs take precedence over"
+5544771,4623346558019065234,9,BigQuery," name_='coverage')
+    def exportChildren(self, outfile, level, namespace_='', name_='coverage', fromsubclass_=False, pretty_print=True):
+        super(coverage, self).exportChildren(outfile, level, namespace_, name_, True, pretty_print=pretty_print)
+    def exportLiteral(self, outfile, level, name_='coverage'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportL"
+378761,-5762649085614350939,75,BigQuery,\u83ae\u83af\u83b0\u83b1\u83b2\u83b3\u83b4\u83b5\u83b6\u83b7\u83b8\u83b9\u83ba\u83bb\u83bc\u83bd\u83be\u83bf\u83c0\u83c1\u83c2\u83c3\u83c4\u83c5\u83c6\u83c7\u83c8\u83c9\u83ca\u83cb\u83cc\u83cd\u
+378761,-1428134513547831284,75,BigQuery,\ua1cb\ua1cc\ua1cd\ua1ce\ua1cf\ua1d0\ua1d1\ua1d2\ua1d3\ua1d4\ua1d5\ua1d6\ua1d7\ua1d8\ua1d9\ua1da\ua1db\ua1dc\ua1dd\ua1de\ua1df\ua1e0\ua1e1\ua1e2\ua1e3\ua1e4\ua1e5\ua1e6\ua1e7\ua1e8\ua1e9\ua1ea\ua
+1664238,8572899314608190384,6,BigQuery,"                    self.file.output(Name(name), Op.use_xobject)
+                    self.file.output(Op.grestore)
+
+        # Draw any horizontal lines in the math layout
+        for ox, oy, width, height in rects:
+            self.file.output(Op.gsave, ox, oy, width, height,
+                             Op.rectangle, Op.fill, Op.grestore)
+
+        # Pop off the global transformation
+        self.file.output(Op.grestore)
+
+    def draw_tex(self, gc, x, y, s, prop, angle, ismath='TeX!', mtext=None):"
+4363502,-1343230550150776702,15,BigQuery,".encode(""ascii"")
+        except UnicodeError:
+            return string
+else:
+    def _stringify(string):
+        return string
+
+__version__ = ""1.0.1""
+
+# xmlrpc integer limits
+MAXINT =  2L**31-1
+MININT = -2L**31
+
+# --------------------------------------------------------------------
+# Error constants (from Dan Libby's specification at
+# http://xmlrpc-epi.sourceforge.net/specs/rfc.fault_codes.php)
+
+# Ranges of errors
+PARSE_ERROR       = -32700
+SERVER_ERROR      = -32600
+AP"
+1801635,-8203749016284790628,91,BigQuery,"19'     #  0x19 -> END OF MEDIUM
+    u'\x1a'     #  0x1A -> SUBSTITUTE
+    u'\x1b'     #  0x1B -> ESCAPE
+    u'\x1c'     #  0x1C -> FILE SEPARATOR
+    u'\x1d'     #  0x1D -> GROUP SEPARATOR
+    u'\x1e'     #  0x1E -> RECORD SEPARATOR
+    u'\x1f'     #  0x1F -> UNIT SEPARATOR
+    u'"
+4787232,-1833960551521735915,7,BigQuery," sequence of coefficients ordered from low to high.
+    i.e., [1,2,3] is the series  ``P_0 + 2*P_1 + 3*P_2.``
+
+    Parameters
+    ----------
+    c : array_like
+        1-D array of Hermite series coefficients ordered from low to
+        high.
+    pow : integer
+        Power to which the series will be raised
+    maxpower : integer, optional
+        Maximum power allowed. This is mainly to limit growth of the series
+        to unmanageable size. Default is 16
+
+    Returns
+    -------
+    coef : ndarray
+        Hermite series of power.
+
+    "
+5544950,3183250283426901585,12,BigQuery,"DER + ""/dd_factors"")
+os.system('mkdir -p'+ INPUTFOLDER + ""/dd_factors"")
+os.system('mv'+ INPUTFOLDER + '/dd_tmp/dd_factors*.bin'+ INPUTFOLDER + '/dd_factors')
+
+os.system('rm -rf'+ INPUTFOLDER + ""/dd_variables"")
+os.system('mkdir -p'+ INPUTFOLDER + ""/dd_variables"")
+os.system('mv'+ INPUTFOLDER + '/dd_tmp/dd_variables*.bin'+ INPUTFOLDER"
+832293,-1182668383155381417,9,BigQuery,"
+def _deepcopy_method(x, memo): # Copy instance methods
+    return type(x)(x.__func__, deepcopy(x.__self__, memo))
+_deepcopy_dispatch[types.MethodType] = _deepcopy_method
+
+def _keep_alive(x, memo):
+    """"""Keeps a reference to the object x in the memo.
+
+    Because we remember objects by their id, we have
+    to assure that possibly temporary objects are kept
+    alive by referencing them.
+    We store a reference at the id of the memo, which should
+    normally not"
+2862961,385734017444923630,38,BigQuery,"module 'core'): ns3::TypeId::SupportLevel [enumeration]
+    module.add_enum('SupportLevel', ['SUPPORTED', 'DEPRECATED', 'OBSOLETE'], outer_class=root_module['ns3::TypeId'], import_from_module='ns.core')
+    ## type-id.h (module 'core'): ns3::TypeId::AttributeInformation [struct]
+    module.add_class('AttributeInformation', import_from_module='ns.core', outer_class=root_module['ns3::TypeId'])
+    ## type-id.h (module 'core'): ns3::"
+7561108,-4725218780308309775,11,BigQuery,"U234"", 9.0)
+
+    # String indexing
+    assert number.get_atom_density(""10000"", ""U238"") == 1.0
+    assert number.get_atom_density(""10001"", ""U238"") == 2.0
+    assert number.get_atom_density(""10002"", ""U238"") == 3.0
+    assert number.get_atom_density(""10000"", ""U235"") == 4.0
+    assert number.get_atom_density(""10001"", ""U235"") == 5.0
+    assert number.get_atom_density(""10002"", ""U235"") == 6.0
+    assert number.get_"
+3483210,9118109077486847819,6,BigQuery," not.
+        """"""
+
+        try:
+            self.hooks[event].remove(hook)
+            return True
+        except ValueError:
+            return False
+
+
+class Request(RequestHooksMixin):
+    """"""A user-created :class:`Request <Request>` object.
+
+    Used to prepare a :class:`PreparedRequest <PreparedRequest>`, which is sent to the server.
+
+    :param method: HTTP method to use.
+    :param url: URL to send.
+    :param headers: dictionary of headers to send.
+    :param files: dictionary of {filename: fileobject} files to multipart upload.
+    :param data:"
+4802511,7242238071537212290,8,BigQuery,"_)
+        else:
+            X = np.asarray(X)
+            if copy:
+                X = X.copy()
+            if self.with_std:
+                X *= self.scale_
+            if self.with_mean:
+                X += self.mean_
+        return X
+
+
+class MaxAbsScaler(BaseEstimator, TransformerMixin):
+    """"""Scale each feature by its maximum absolute value.
+
+    This estimator scales and translates each feature individually such
+    that the maximal absolute value of each feature in the
+    training set will be 1.0. It does not shift/center the data, and
+    thus does not destroy any"
+6773063,5488306792608410314,24,BigQuery,".h (module 'core'): double ns3::GammaRandomVariable::GetValue(double alpha, double beta) [member function]
+    cls.add_method('GetValue', 
+                   'double', 
+                   [param('double', 'alpha'), param('double', 'beta')])
+    ## random-variable-stream.h (module 'core'): uint32_t ns3::GammaRandomVariable::GetInteger(uint32_t alpha, uint32_t beta) [member function]
+    cls.add_method('GetInteger', 
+                   'uint32_t', 
+                   [param('uint32_t', 'alpha'), param"
+7424899,-2643238278329552902,21,BigQuery,"
+        if self._values['managed']:
+            return None
+        return self._values['device_address']
+
+    @property
+    def managed(self):
+        return None
+
+
+class ReportableChanges(Changes):
+    pass
+
+
+class Difference(object):
+    def __init__(self, want, have=None):
+        self.want = want
+        self.have = have
+
+    def compare(self, param):
+        try:
+            result = getattr(self, param)
+            return result
+        except AttributeError:
+            return self.__default(param)
+
+    def __default(self, param):
+        attr1 = getattr"
+3711130,7764074191301178177,11,BigQuery,",
+    'NCHAR': sqltypes.NCHAR,
+}
+
+
+class SQLiteCompiler(compiler.SQLCompiler):
+    extract_map = util.update_copy(
+        compiler.SQLCompiler.extract_map,
+        {
+           'month': '%m',
+            'day': '%d',
+            'year': '%Y',
+           'second': '%S',
+            'hour': '%H',
+            'doy': '%j',
+           'minute': '%M',
+            'epoch': '%s',
+            'dow': '%w',
+"
+378761,682602129618671029,75,BigQuery,u9d35\u9d36\u9d37\u9d38\u9d39\u9d3a\u9d3b\u9d3c\u9d3d\u9d3e\u9d3f\u9d40\u9d41\u9d42\u9d43\u9d44\u9d45\u9d46\u9d47\u9d48\u9d49\u9d4a\u9d4b\u9d4c\u9d4d\u9d4e\u9d4f\u9d
+545341,3940270395935974165,276,BigQuery,"     #  0x96 -> <control>
+    '\x97'     #  0x97 -> <control>
+    '\x98'     #  0x98 -> <control>
+    '\x99'     #  0x99 -> <control>
+    '\x9a'     #  0x9A -> <control>
+    '\x9b'     #  0x9B -> <control>
+    '\x9c'     #  0x9C -> <control>
+    '\x9d'     #  0x9D -> <control>
+    '\x9e'     #  0x"
+1786173,-3008202054366103337,14,BigQuery," ns3::Application > > >', 
+                   [], 
+                   is_const=True)
+    ## application-container.h (module 'network'): __gnu_cxx::__normal_iterator<const ns3::Ptr<ns3::Application>*,std::vector<ns3::Ptr<ns3::Application>, std::allocator<ns3::Ptr<ns3::Application> > > > ns3::ApplicationContainer::End() const [member function]
+    cls.add_method('End', 
+                   '__gnu_cxx::__normal_iterator< ns3::Ptr< ns3::Application > const, std::vector< ns3::Ptr"
+2210638,-1621776738055598422,12,BigQuery,"[param('ns3::Ptr< ns3::LrWpanPhy >', 'phy'), param('ns3::Ptr< ns3::MobilityModel >','m')])
+    ## lr-wpan-helper.h (module 'lr-wpan'): ns3::NetDeviceContainer ns3::LrWpanHelper::Install(ns3::NodeContainer c) [member function]
+    cls.add_method('Install', 
+                   'ns3::NetDeviceContainer', 
+                   [param('ns3::NodeContainer', 'c')])
+    ## lr-wpan-helper.h (module 'lr-wpan'"
+6652181,-7076906888374432118,18,BigQuery,"es = {
+    100: 'Continue',
+    101: 'Switching Protocols',
+
+    200: 'OK',
+    201: 'Created',
+    202: 'Accepted',
+    203: 'Non-Authoritative Information',
+    204: 'No Content',
+    205: 'Reset Content',
+    206: 'Partial Content',
+
+    300: 'Multiple Choices',
+    301: 'Moved Permanently',
+    302: 'Found',
+    303: 'See Other',
+    304: 'Not Modified',
+    305: 'Use Proxy',
+    306: '(Unused)',
+    307: 'Temporary Redirect',
+
+"
+7394712,5735766363030811514,12,BigQuery,"num_classes=None,
+              is_training=True,
+              global_pool=True,
+              output_stride=None,
+              include_root_block=True,
+              spatial_squeeze=True,
+              reuse=None,
+              scope=None):
+  """"""Generator for v1 ResNet models.
+
+  This function generates a family of ResNet v1 models. See the resnet_v1_*()
+  methods for specific model instantiations, obtained by selecting different
+  block instantiations that produce ResNets of various depths.
+
+  Training for image classification on Imagenet is usually done with [224, 224]
+  "
+7289048,7510753176897736249,52,BigQuery," self.dispose_func:
+            for value in values:
+                self.dispose_func(value)
+
+    def keys(self):
+        with self.lock:
+            return list(iterkeys(self._container))
+
+
+class HTTPHeaderDict(MutableMapping):
+    """"""
+    :param headers:
+        An iterable of field-value pairs. Must not contain multiple field names
+        when compared case-insensitively.
+
+    :param kwargs:
+        Additional field-value pairs to pass in to ``dict.update``.
+
+    A ``dict`` like container for storing HTTP Headers.
+
+    Field names are stored and compared case-ins"
+378761,-4835601664795879749,75,BigQuery,e1a\u2e1b\u2e1e\u2e1f\u2e20\u2e21\u2e22\u2e23\u2e24\u2e25\u2e26\u2e27\u2e28\u2e29\u2e2a\u2e2b\u2e2c\u2e2d\u2e2e\u2e2f\u2e30\u2e31\u2e32\u2e33\u2e34\u2e35\u2e36\u2e37\u2
+5197502,-8492846960879524237,31,BigQuery,"Boise',
+ 'America/Buenos_Aires',
+ 'America/Cambridge_Bay',
+ 'America/Campo_Grande',
+ 'America/Cancun',
+ 'America/Caracas',
+ 'America/Catamarca',
+ 'America/Cayenne',
+ 'America/Cayman',
+ 'America/Chicago',
+ 'America/Chihuahua',
+ 'America/Coral_Harbour',
+ 'America/Cordoba',
+ 'America/Costa_Rica',
+ 'America/Creston',
+ 'America/Cuiaba',
+ 'America/Curacao',
+ 'America/Danmarkshavn',
+"
+5014689,6616317808987232458,8,BigQuery,"er <mail@renemoser.net>
+# (c) 2015, Stefan Berggren <nsg@nsg.cc>
+# (c) 2014, Ramon de la Fuente <ramon@delafuente.nl>
+#
+# This file is part of Ansible
+#
+# Ansible is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# Ansible is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY;"
+6242110,1407477497419377175,9,BigQuery,"))
+
+    def depart_emphasis(self, node):
+        self.body.append('</em>')
+
+    def visit_entry(self, node):
+        atts = {'class': []}
+        if isinstance(node.parent.parent, nodes.thead):
+            atts['class'].append('head')
+        if node.parent.parent.parent.stubs[node.parent.column]:
+            # ""stubs"" list is an attribute of the tgroup element
+            atts['class'].append('stub')
+        if atts['class']:
+            tagname = 'th'
+            atts['class'] =''.join(atts"
+4665874,-6938679807316472553,12,BigQuery,"', 'col_3', 'col_0', 'col_1', 'col_4') VALUES ('row_255', 'val_2', 'val_3', 'val_0', 'val_1', 'val_4');
+INSERT INTO rolling_cf_standard (KEY, 'col_2', 'col_3', 'col_0', 'col_1', 'col_4') VALUES ('row_254', 'val_2', 'val_3', 'val_0', 'val_1', 'val_4');
+INSERT INTO rolling_cf_standard (KEY, 'col_2', 'col_3', 'col_0', '"
+5483945,-1740999708054066433,6,BigQuery,"    def dump_stats(self, file):
+        f = open(file, 'wb')
+        self.create_stats()
+        marshal.dump(self.stats, f)
+        f.close()
+
+    def create_stats(self):
+        self.simulate_cmd_complete()
+        self.snapshot_stats()
+
+    def snapshot_stats(self):
+        self.stats = {}
+        for func, (cc, ns, tt, ct, callers) in self.timings.items():
+            callers = callers.copy()
+            nc = 0
+            for callcnt in callers.values():
+                "
+378761,5870223940566252888,75,BigQuery,uf72c\uf72d\uf72e\uf72f\uf730\uf731\uf732\uf733\uf734\uf735\uf736\uf737\uf738\uf739\uf73a\uf73b\uf73c\uf73d\uf73e\uf73f\uf740\uf741\uf742\uf743\uf744\uf745\uf746\uf747\uf748\uf749\uf74a\uf74b\uf74c\uf74d\uf74e\uf74f\uf750\uf751\uf752\uf753\uf
+6137054,-4861010494690859283,64,BigQuery," (c) 2012-TODAY OpenERP S.A. <http://openerp.com>
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU"
+5514998,-4782244174944101539,20,BigQuery,"        (x, y, a10, m1, m2, xm, ym, z, zm, xf) = self.d
+        assert_equal(np.cos(x), cos(xm))
+        assert_equal(np.cosh(x), cosh(xm))
+        assert_equal(np.sin(x), sin(xm))
+        assert_equal(np.sinh(x), sinh(xm))
+        assert_equal(np.tan(x), tan(xm))
+        assert_equal(np.tanh(x), tanh(xm))
+        assert_equal(np.sq"
+5621125,-5827682115935474385,28,BigQuery," None, ), # 2
+  )
+
+  def __hash__(self):
+    return 0 + hash(self.func_args) + hash(self.request_id)
+
+  def __init__(self, func_args=None, request_id=None,):
+    self.func_args = func_args
+    self.request_id = request_id
+
+  def read(self, iprot):
+    if iprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None and fastbinary is not None"
+6773063,-1538361687984208378,24,BigQuery,"TypeId', 
+                   [], 
+                   is_static=True)
+    ## random-variable-stream.h (module 'core'): ns3::LogNormalRandomVariable::LogNormalRandomVariable() [constructor]
+    cls.add_constructor([])
+    ## random-variable-stream.h (module 'core'): double ns3::LogNormalRandomVariable::GetMu() const [member function]
+    cls.add_method('GetMu', 
+                   'double', 
+                   [], 
+                   is_const=True)
+    ## random-variable-stream.h (module 'core'): double ns3::LogNormalRandomVariable"
+4787232,-996600254995722771,7,BigQuery,"xdeg + 1, ydeg + 1, zdeg + 1) in the order
+
+   .. math:: c_{000}, c_{001}, c_{002},..., c_{010}, c_{011}, c_{012},...
+
+    and  ``np.dot(V, c.flat)`` and ``hermval3d(x, y, z, c)`` will be the
+    same up to roundoff. This equivalence is useful both for least squares
+    fitting and for the evaluation of a large number of 3-D Hermite
+    series of the same degrees and sample points.
+
+    Parameters
+    ----------
+    x, y, z : array_like
+        "
+4909263,-6752170028439293908,28,BigQuery,"f',
+0x1d60e:u'g', 0x1d60f:u'h', 0x1d610:u'i', 0x1d611:u'j',
+0x1d612:u'k', 0x1d613:u'l', 0x1d614:u'm', 0x1d615:u'n',
+0x1d616:u'o', 0x1d617:u'p', 0x1d618:u'q', 0x1d619:u'r',
+0x1d61a:u's', 0x1d61b:"
+923177,-4392309613211835070,8,BigQuery,"# test again with failing write()
+                    with self.assertRaises(FileNotFoundError):
+                        tempfile._get_default_tempdir()
+                    self.assertEqual(os.listdir(our_temp_directory), [])
+
+
+class TestGetCandidateNames(BaseTestCase):
+    """"""Test the internal function _get_candidate_names.""""""
+
+    def test_retval(self):
+        # _get_candidate_names returns a _RandomNameSequence object
+        obj = tempfile._get_candidate_names()
+        self.assertIsInstance(obj, tempfile._RandomNameSequence)
+
+    def test_same_"
+378761,9043785890655832911,75,BigQuery,u4544\u4545\u4546\u4547\u4548\u4549\u454a\u454b\u454c\u454d\u454e\u454f\u4550\u4551\u4552\u4553\u4554\u4555\u4556\u4557\u4558\u4559\u455a\u455b\u455c\u455d\u455e\u455f\u4560\u4561\u4562\u4563\u4564\u4565\u4566\u4567\u4568\u45
+6166978,6911810831136368220,24,BigQuery," &', 'arg0')])
+    ## single-model-spectrum-channel.h (module'spectrum'): ns3::SingleModelSpectrumChannel::SingleModelSpectrumChannel() [constructor]
+    cls.add_constructor([])
+    ## single-model-spectrum-channel.h (module'spectrum'): void ns3::SingleModelSpectrumChannel::AddPropagationLossModel(ns3::Ptr<ns3::PropagationLossModel> loss) [member function]
+    cls.add_method('AddPropagationLossModel', 
+                   'void', 
+                   [param('ns3::Ptr<"
+3241292,8678203413085559682,6,BigQuery,"supports_download=False,
+    )
+
+    def List(self, request, global_params=None):
+      """"""Retrieves the list of groups contained within the specified project.
+
+      Args:
+        request: (ClouduseraccountsGroupsListRequest) input message
+        global_params: (StandardQueryParameters, default: None) global arguments
+      Returns:
+        (GroupList) The response message.
+      """"""
+      config = self.GetMethodConfig('List')
+      return self._RunMethod(
+          config, request, global_params=global_params)
+
+    List.method_config = lambda: base_api.ApiMethodInfo(
+        "
+1786173,8325448199655917890,14,BigQuery,"h (module 'network'): uint32_t ns3::Socket::GetRxAvailable() const [member function]
+    cls.add_method('GetRxAvailable', 
+                   'uint32_t', 
+                   [], 
+                   is_pure_virtual=True, is_const=True, is_virtual=True)
+    ## socket.h (module 'network'): int ns3::Socket::GetSockName(ns3::Address & address) const [member function]
+    cls.add_method('GetSockName', 
+                   'int', 
+                   [param('ns3::Address &', 'address')], 
+"
+6773063,7342492980193147495,24,BigQuery,"er', import_from_module='ns.network', parent=root_module['ns3::AttributeChecker'])
+    ## ipv6-address.h (module 'network'): ns3::Ipv6AddressValue [class]
+    module.add_class('Ipv6AddressValue', import_from_module='ns.network', parent=root_module['ns3::AttributeValue'])
+    ## ipv6-address.h (module 'network'): ns3::Ipv6PrefixChecker [class]
+    module.add_class('Ipv6PrefixChecker', import_from_module='ns.network', parent"
+5878534,-4859075484618395367,28,BigQuery,"relative"" is False, then ""filename"" specifies an
+        os-specific path.  The path may be absolute or relative (to
+        the current working directory).
+
+    Optional keyword arg ""name"" gives the name of the test; by default
+    use the file's basename.
+
+    Optional keyword argument ""package"" is a Python package or the
+    name of a Python package whose directory should be used as the
+    base directory for a module relative filename.  If no package is
+    specified, then the calling module's directory is used as the base
+    directory for module relative filenames.  It is an error to
+    specify ""package"" if ""module_relative"" is False"
+2271380,-5457092534201525249,9,BigQuery,"resource_name)
+
+    def resource_isdir(self, package_or_requirement, resource_name):
+        """"""Is the named resource an existing directory?""""""
+        return get_provider(package_or_requirement).resource_isdir(
+            resource_name
+        )
+
+    def resource_filename(self, package_or_requirement, resource_name):
+        """"""Return a true filesystem path for specified resource""""""
+        return get_provider(package_or_requirement).get_resource_filename(
+            self, resource_name
+        )
+
+    def resource_stream(self, package_or_requirement, resource_name):
+        "
+5484160,6679389820547492622,7,BigQuery,"os.path.dirname(output_filename))
+            try:
+                if target_desc == CCompiler.EXECUTABLE:
+                    linker = self.linker_exe[:]
+                else:
+                    linker = self.linker_so[:]
+                if target_lang == ""c++"" and self.compiler_cxx:
+                    # skip over environment variable settings if /usr/bin/env
+                    # is used to set up the linker's environment.
+                    # This is needed on OSX. Note: this assumes that the
+                    # normal and C++ compiler have the same environment
+                    # settings.
+                    i = 0
+                    "
+3468239,-4399101504105068141,8,BigQuery,"set):
+        name_list = self._set_to_list(name_set)
+        for i in range(len(name_list)):
+            self._request['EnvironmentNames.member.' + misc.to_unicode(i + 1)] \
+                = misc.to_unicode(name_list[i])
+
+    def set_env_ids(self, id_set):
+        id_list = self._set_to_list(id_set)
+        for i in range(len(id_list)):
+            self._request['EnvironmentIds.member.' + misc.to_unicode(i + 1)] \
+                = misc"
+893839,-7816193542071589666,251,BigQuery," sys.modules[moduleOrReq]
+    loader = getattr(module, '__loader__', None)
+    return _find_adapter(_provider_factories, loader)(module)
+
+def _macosx_vers(_cache=[]):
+    if not _cache:
+        version = platform.mac_ver()[0]
+        # fallback for MacPorts
+        if version == '':
+            plist = '/System/Library/CoreServices/SystemVersion.plist'
+            if os.path.exists(plist):
+                if hasattr(plistlib,'readPlist'):
+                    plist_content = pl"
+4620588,-3957937420018845823,14,BigQuery,"
+                   [], 
+                   is_static=True)
+    ## wifi-phy.h (module 'wifi'): static ns3::WifiMode ns3::WifiPhy::GetErpOfdmRate18Mbps() [member function]
+    cls.add_method('GetErpOfdmRate18Mbps', 
+                   'ns3::WifiMode', 
+                   [], 
+                   is_static=True)
+    ## wifi-phy.h (module 'wifi'): static ns3::WifiMode ns3::WifiPhy::GetErpOfdmRate24Mbps() [member function]
+    cls.add_method"

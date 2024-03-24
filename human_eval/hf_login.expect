@@ -1,0 +1,23 @@
+#!/usr/bin/expect -f
+
+# 设置token变量
+set token "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"
+
+# 启动huggingface-cli登录过程
+spawn huggingface-cli login
+
+# 等待token提示
+expect "Token:"
+
+# 提供token
+send "$token\r"
+
+# 等待是否将token添加为git凭证的提示
+expect "Add token as git credential? (Y/n)"
+
+# 发送'yes'的回应
+send "y\r"
+
+# 等待脚本结束
+expect eof
+
