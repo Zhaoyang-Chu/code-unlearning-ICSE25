@@ -1,7 +1,7 @@
 # code-unlearning
 
 Welcome to our repository 🌟! Here, we present our PyTorch implementation for the ICSE submission 📚 "Forget It! Erasing Memorization in Code Language Models via Machine Unlearning". 
-Our work focuses on a novel approach to reduce the memorization of sensitive data by code language models, contributing to the field of ethical AI and data privacy. 
+Our work focuses on a novel approach to reduce the specific data memorization in code language models, contributing to the field of ethical AI and data privacy. 
 We are excited to share our findings and methodology with the community and look forward to collaborative exploration and discussion. 
 If you encounter any issues or have questions about our code, please don't hesitate to reach out through the `Issues` section.
 
@@ -86,38 +86,27 @@ To enable iterative training in the `PyTorch Lightning` framework, please modify
 ```
 This modification allows `PyTorch Lightning` to support the custom iterative training process required by our project.
 
-## Enviroment variables
+## Additional Configuration Settings
 
-```shell
-export HF_HOME=<your_hf_home>
-export TOKENIZERS_PARALLELISM=false
-export CUDA_VISIBLE_DEVICES=0,1,2,3
-accelerate config
-```
-
-accelerate config
-```
-compute_environment: LOCAL_MACHINE
-debug: false
-deepspeed_config:
-  gradient_accumulation_steps: 2
-  zero3_init_flag: false
-  zero_stage: 0
-distributed_type: DEEPSPEED
-downcast_bf16: 'no'
-machine_rank: 0
-main_training_function: main
-mixed_precision: fp16
-num_machines: 1
-num_processes: 4
-rdzv_backend: static
-same_network: true
-tpu_env: []
-tpu_use_cluster: false
-tpu_use_sudo: false
-use_cpu: false
-```
-You may need to update the pytorch installation command accordingly based on your CUDA version.
+1. Configure the directory where Hugging Face datasets and models will be cached:
+    ```shell
+    export HF_HOME=<path_to_your_hf_cache_directory>
+    ```
+    Replace <path_to_your_hf_cache_directory> with the actual path where you'd like Hugging Face to store its cache data.
+2. Disable parallelism in tokenizers to avoid potential conflicts with multiprocessing:
+    ```shell
+    export TOKENIZERS_PARALLELISM=false
+    ```
+3. Specify which GPUs should be visible to and used by CUDA:
+    ```shell
+    export CUDA_VISIBLE_DEVICES=0,1,2,3
+    ```
+    Adjust the numbers based on the available GPUs you intend to use. 
+4. Run the Accelerate configuration command to set up your preferred environment for distributed and mixed-precision training:
+    ```shell
+    accelerate config
+    ```
+    Follow the prompts to configure `Accelerate` according to your specific hardware setup.
 
 # Memorization Extraction
 
