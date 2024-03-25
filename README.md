@@ -1,15 +1,16 @@
 # code-unlearning
 
 Welcome to our repository 🌟! Here, we present our PyTorch implementation for the ICSE submission 📚 "Forget It! Erasing Memorization in Code Language Models via Machine Unlearning". 
-Our work focuses on a novel approach to reduce the specific data memorization in code language models, contributing to the field of ethical AI and data privacy. 
+Our work focuses on a novel approach to reduce the specific data memorization in code language models (CLMs), contributing to the field of ethical AI and data privacy. 
+
 We are excited to share our findings and methodology with the community and look forward to collaborative exploration and discussion. 
 If you encounter any issues or have questions about our code, please don't hesitate to reach out through the `Issues` section.
 
 **Repository Overview:**
 - [Environment Configuration](#environment-configuration) - Setting up the necessary environment to run our code.
-- [Memorization Extraction](#memorization-extraction) - Extracting the training data memorized by code language models.
+- [Memorization Extraction](#memorization-extraction) - Extracting the training data memorized by CLMs.
 - [New Data Collection](#new-data-collection) - Collecting new data samples from GitHub repositories.
-- [Unlearning](#unlearning) - Making the target code language models forget specific information, mitigating the risks of data memorization.
+- [Unlearning](#unlearning) - Making the target CLMs forget specific information, mitigating the risks of data memorization.
 
 # Environment Configuration
 
@@ -110,78 +111,60 @@ This modification allows `PyTorch Lightning` to support the custom iterative tra
 
 # Memorization Extraction
 
-For the target code language models (i.e., CodeParrot and CodeGen), we extract the training data memorized by these models and sample instances from the memorized data as the target samples to be forgotten.
+In our study, we investigate two widely-used CLM families, i.e., CodeParrot and CodeGen, and identify and extract instances of training data memorized by these models.
+These instances then serve as target samples to be forgotten for the subsequent unlearning procedure.
 
 ## CodeParrot
 
-Please enter the `codeparrot` directory using `cd memorization/codeparrot`. 
+Enter the `codeparrot` directory using `cd memorization/codeparrot`. 
 This directory is built upon the [official implementation](https://figshare.com/articles/software/Replication_Package_for_Submission_strong_Unraveling_Memorization_in_Code_Models_strong_/22774697) of "[What Do Code Models Memorize? An Empirical Study on Large Language Models of Code](https://arxiv.org/abs/2308.09932)".
 
-### Generate Outputs from CodeParrot
+### Generating Outputs from CodeParrot
 
-We first generate outputs from the CodeParrot model using the non-prompt generation strategy. 
-Specifically, non-prompt generation directly feeds the 'start token' (e.g., \<s\>) as a prompt into CodeParrot. 
-After the initial 'start token' is processed, CodeParrot begins to generate the next tokens, one at a time, in a sequential manner. 
-Please switch to the `extract` directory using `cd extract` and run the following command:
-
+Specifically for the `codeparrot/codeparrot` model, we generate outputs from it using the non-prompt generation strategy, which directly feeds the 'start token' (e.g., \<s\>) as a prompt into the model. 
+After the initial 'start token' is processed, the model begins to generate the next tokens, one at a time, in a sequential manner. 
+Switch to the `extract` directory using `cd extract` and run the following command:
 ```shell
 python extract.py --model codeparrot/codeparrot --N 20000 --batch-size 32 --seq_len 512 --top_k 40 --temperature 1.0 --gpu_id 0 --generation_strategy npg
-python extract.py --model codeparrot/codeparrot-small --N 20000 --batch-size 32 --seq_len 512 --top_k 40 --temperature 1.0 --gpu_id 0 --generation_strategy npg
 ```
-
-This script generates 20,000 sequences, each 512 tokens in length. The batch size is configurable based on the available GPU memory. The parameter top_k=40 configures the model to sample the next token from the 40 most probable candidates, while `temperature=1.0` indicates the standard level of diversity in the model's outputs.
-
+This script generates 20,000 sequences, each 512 tokens in length. The batch size is configurable based on the available GPU memory. The parameter `top_k=40` configures the model to sample the next token from the 40 most probable candidates, while `temperature=1.0` indicates the standard level of diversity in the model's outputs.
 Executing the script will create a new directory `extract/results/codeparrot/codeparrot-temp1.0-len512-k40-npg`, which contains a subdirectory named `separate`. Within this subdirectory, you will find numerous files labeled sequentially from `0` to `19999`, with each file representing a unique output from the CodeParrot model. 
 If you require more samples, rerun the command. The new samples will be sequentially labeled starting from `20000`, ensuring that your dataset continuously expands without overwriting existing files.
 
 After generating the separate output files, you can combine them into a single large file with the command below:
-
 ```shell
 python merge.py --model codeparrot/codeparrot --top_k 40 --temperature 1.0 --seq_len 512 --generation_strategy npg
-python merge.py --model codeparrot/codeparrot-small --top_k 40 --temperature 1.0 --seq_len 512 --generation_strategy npg
 ```
+This will merge the individual outputs into a big file named `all_0-19999` and generate a `map_0-19999.json` file, which records file ID, MD5 hash, and lines of each file in the merged `all_0-19999` file.
 
-This will merge the individual outputs into a big file named `all_0-19999` and generate a `map_0-19999.json` file, which records:
-
-* File ID
-* MD5 hash of each file in the merged `all_0-19999` file
-* The lines of each file in the merged `all_0-19999` file
-
-### Memorization Analysis
+### Extracting Memorization
 
 After sampling outputs from CodeParrot, we detect whether the outputs contain memorization. 
 
 #### Downloading the training data
 
-Execute the following command to download the `codeparrot/codeparrot-clean-train` dataset, the training data for `codeparrot/codeparrot` models.
-
+Execute the following command to download the `codeparrot/codeparrot-clean-train` dataset, the training data for the `codeparrot/codeparrot` model.
 ```shell
 cd ../clone
 python cache_data.py 2>&1 | tee download.log
 ```
-
 This will generate a folder `clone/save/codeparrot/codeparrot-clean-train`, where the dataset is split into 53 subfiles. This allows us to analyze memorizations in parallel. 
 The dataset is over 50GB, so this process may take a while, depending on your network status.
 
 #### Finding Memorization
 
-In the `codeparrot` directory, run the following command:
-
+In the `codeparrot` directory, run the following command to analyze potential memorization within generated outputs against the training dataset::
 ```shell
 cd ..
 python clone/scripts.py --model codeparrot/codeparrot --top_k 40 --temperature 1.0 --seq_len 512 --start 0 --end 20000 --generation_strategy npg
-python clone/scripts.py --model codeparrot/codeparrot-small --top_k 40 --temperature 1.0 --seq_len 512 --start 0 --end 20000 --generation_strategy npg
 ```
-
 Please note that initiating this step will spawn 53 processes and may consume up to 400 GB of memory. 
-If your computational resources are limited, we recommend modifying the code in clone/scripts.py to reduce the number of processes running in parallel.
+If your computational resources are limited, we recommend modifying the code statement `for i in range(53):` in clone/scripts.py to reduce the number of processes running in parallel.
 
 This command will analyze the code clones between the `all_0-19999` file (all the outputs we sampled) and each subfiles of the training data we obtained in the previous step.
 It will store the results in `log/save/codeparrot/codeparrot-temp1.0-len512-k40`.
 This folder contains many log files, `0.log`, `1.log`, ..., `52.log`.
-Each log file stores the memorization analysis results.
-It could contain something like
-
+Each log file stores the memorization analysis results, which contain something like:
 ```javascript
 Found 6 duplicate lines with fingerprint 1176c28f7138b31961b65e38b6f7159b in the following files:
  Between lines 187773 and 187778 in <your-folder>/extract/results/codeparrot/codeparrot-temp1.0-len512-k40/all
@@ -190,56 +173,23 @@ Found 6 duplicate lines with fingerprint 1176c28f7138b31961b65e38b6f7159b in the
  Between lines 2834883 and 2834888 in <your-folder>/clone/save/codeparrot/codeparrot-clean-train/0
  Between lines 733896 and 733901 in <your-folder>/clone/save/codeparrot/codeparrot-clean-train/0
 ```
-
 It means that:
 1. the identified clone has 6 lines.
-2. The MD5 of the clone is `1176c28f7138b31961b65e38b6f7159b`.
-3. The clone is found in multiple places, including both the `all` file (i.e., model outputs) and part of the training data. In other words, the CodeParrot model memorizes contents from the training data.
+2. the MD5 of the clone is `1176c28f7138b31961b65e38b6f7159b`.
+3. the clone is found in multiple places, including both the `all` file (i.e., model outputs) and part of the training data.
 
 #### Analyzing memorization
 
-Then, we run the following command to analyze the memorization:
-
-```shell
-python clone/analyze.py --model codeparrot/codeparrot --top_k 40 --temperature 1.0 --seq_len 512 --start 0 --end 20000 --generation_strategy npg
-```
-
-This command analyzes each log file.
-
-1. extracts memorized contents (i.e., clones appearing in both ``all_0-19999` and subfile of training data) from each log file
-2. merge memorized contents in each subfile of training data (using fingerprints), and save to `log/save/codeparrot/codeparrot-temp1.0-len512-k40/stats/memorization.json`
-3. analyze the memorized contents.
-
-The saved `memorization.json` contains:
-
-```json
-{
-    "3a2ebcaa1123523fe878de0460533174": {
-        "train": 3289,
-        "extract": 330,
-        "len": 6
-    },
-    ...
-}
-```
-
-The key is the fingerprint of the memorized content. `"train": 3289` means it appears 3289 times in the training data and `"extract": 330` means that it appears 330 times in the model outputs. `"len": 6` means the length of the memorized content is 6 lines.
-
 Then, we run the following command to get the memorization content:
-
 ```shell
 python log/analyze.py --model codeparrot/codeparrot --top_k 40 --temperature 1.0 --seq_len 512 --start 0 --end 20000 --generation_strategy npg
-python log/analyze.py --model codeparrot/codeparrot-small --top_k 40 --temperature 1.0 --seq_len 512 --start 0 --end 20000 --generation_strategy npg
 ```
+This command analyzes each log file by:
+1. extracting memorized contents (i.e., clones appearing in both ``all_0-19999` and subfile of training data) from each log file;
+2. storing the memorized contents to the `log/save/codeparrot/codeparrot-temp1.0-len512-k40/analyze/` directory.
 
-This command analyzes each log file.
-
-1. extracts memorized contents (i.e., clones appearing in both ``all_0-19999` and subfile of training data) from each log file
-2. store the memorized contents to `log/save/codeparrot/codeparrot-temp1.0-len512-k40/analyze/`
-
-Each `x.txt` corresponds to `x.log` and `all.txt` merges all the results in `x.txt`.
-
-the `txt` contains
+In this directory, each `x.txt` corresponds to `x.log` and `all.txt` merges all the results in `x.txt`.
+Each `.txt` file contains:
 ```txt
 >>>>>>>>>>fingerprints dc928385dd77b24d74cbf823d2ad9305 >>>>>>>>>>>>>
     'sphinx.ext.todo',
@@ -260,30 +210,38 @@ templates_path = ['_templates']
 ++++fingerprints dc928385dd77b24d74cbf823d2ad9305 ++++
 <<<<<<<<<<fingerprints dc928385dd77b24d74cbf823d2ad9305 <<<<<<<<<<
 ```
-where the 
-
+where:
 1. `>>>>>>>>>>fingerprints dc928385dd77b24d74cbf823d2ad9305 >>>>>>>>>>>>>` is the beigining of the memorized contents and  `dc928385dd77b24d74cbf823d2ad9305` is the md5
 2. if the files with the same md5 have more than one memorized content, we use  `++++fingerprints dc928385dd77b24d74cbf823d2ad9305 ++++` to split each memorized contents
 3. `<<<<<<<<<<fingerprints dc928385dd77b24d74cbf823d2ad9305 <<<<<<<<<<` is the end of memorized contents.
 
-Finally, we extract 38,113 unique segments of memorized data and select 18,621 segments of moderate length, not less than 128 tokens, to construct our dataset. 
-
+Finally, we extract 18,621 unique segments memorized by the `codeparrot/codeparrot` model to construct the memorization dataset:
 ```shell
 cd log
 python save.py --model codeparrot/codeparrot --top_k 40 --temperature 1.0 --seq_len 512 --start 0 --end 20000 --generation_strategy npg
+```
+
+We conduct the same procedure for the `codeparrot/codeparrot-small` model and extract 10,373 pieces of memorized data:
+```shell
+python extract.py --model codeparrot/codeparrot-small --N 20000 --batch-size 32 --seq_len 512 --top_k 40 --temperature 1.0 --gpu_id 0 --generation_strategy npg
+python merge.py --model codeparrot/codeparrot-small --top_k 40 --temperature 1.0 --seq_len 512 --generation_strategy npg
+python clone/scripts.py --model codeparrot/codeparrot-small --top_k 40 --temperature 1.0 --seq_len 512 --start 0 --end 20000 --generation_strategy npg
+python log/analyze.py --model codeparrot/codeparrot-small --top_k 40 --temperature 1.0 --seq_len 512 --start 0 --end 20000 --generation_strategy npg
 python save.py --model codeparrot/codeparrot-small --top_k 40 --temperature 1.0 --seq_len 512 --start 0 --end 20000 --generation_strategy npg
+```
+
+We move the memorized data to the `../../../unlearning/data/codeparrot` directory for subsequent use:
+```shell
 mkdir -p ../../../unlearning/data/codeparrot
 cp save/codeparrot/*_filtered_memorization.csv ../../../unlearning/data/codeparrot
 ```
-codeparrot-small:
-Obtain 22929 pieces of memorized data in total.
-Select 10373 pieces of memorized data of moderate length, not less than 128 tokens.
 
 ## CodeGen
 
 Please enter the `codegen` directory using `cd ../../codegen`. 
 This directory is built upon the [official implementation](https://github.com/AISE-TUDelft/LLM4Code-extraction) of "[Traces of Memorisation in Large Language Models for Code](https://arxiv.org/abs/2312.11658)".
-
+For the CodeGen-Mono family of models, we extract their memorized data based on a code benchmark proposed by this work.
+By conducting the following commands, we extract 260 and 997 memorization samples for the `Salesforce/codegen-350M-mono` and `Salesforce/codegen-2B-mono` models, respectively:
 ```shell
 python extract.py --model_name_or_path Salesforce/codegen-350M-mono --gpu_id 0 --batch_size 50
 python extract.py --model_name_or_path Salesforce/codegen-2B-mono --gpu_id 0 --batch_size 50
