@@ -15,7 +15,7 @@ If you encounter any issues or have questions about our code, please don't hesit
 
 ## CUDA Dependencies
 
-Our work hinges on specific versions of the CUDA Toolkit and cuDNN. Ensure you have the following versions installed:
+Our project requires specific versions of the CUDA Toolkit and cuDNN. Ensure you have the following versions installed:
 - **CUDA Toolkit**: Version 11.8.0
 - **cuDNN**: Version 8.8.1 (compatible with CUDA 11.x)
 
@@ -49,7 +49,7 @@ conda create -n code-unlearning python=3.9
 conda activate code-unlearning
 ```
 
-Requied python packages are as follows:
+Install the necessary Python packages:
 ```shell
 pip install https://download.pytorch.org/whl/cu118/torch-2.0.1%2Bcu118-cp39-cp39-linux_x86_64.whl
 pip install transformers==4.33.2
@@ -67,8 +67,7 @@ pip install torchmetrics==1.1.2
 pip install accelerate==0.23.0
 ```
 
-For iterative training, please do this in the `<your path>/anaconda3/envs/code-unlearning/lib/python3.9/site-packages/pytorch_lightning/loops/fit_loop.py`:
-Comment the lines from 352 to 356
+To enable iterative training in the `PyTorch Lightning` framework, please modify the code in the `<your path>/anaconda3/envs/code-unlearning/lib/python3.9/site-packages/pytorch_lightning/loops/fit_loop.py` by commenting the lines from 352 to 356, as follows:
 ```python
     def advance(self) -> None:
         """Runs one whole epoch."""
@@ -76,15 +75,16 @@ Comment the lines from 352 to 356
 
         combined_loader = self._combined_loader
         assert combined_loader is not None
-        # if combined_loader._mode == "sequential":  # comment
-        #     raise ValueError(  # comment
-        #         f'`{type(self).__name__}` does not support the `CombinedLoader(mode="sequential")` mode.'  # comment
-        #         f" The available modes are: {[m for m in _SUPPORTED_MODES if m != 'sequential']}"  # comment
-        #     )  # comment
+        # if combined_loader._mode == "sequential":  # commenting
+        #     raise ValueError(  # commenting
+        #         f'`{type(self).__name__}` does not support the `CombinedLoader(mode="sequential")` mode.'  # Comment
+        #         f" The available modes are: {[m for m in _SUPPORTED_MODES if m != 'sequential']}"  # commenting
+        #     )  # commenting
         with self.trainer.profiler.profile("run_training_epoch"):
             assert self._data_fetcher is not None
             self.epoch_loop.run(self._data_fetcher)
 ```
+This modification allows `PyTorch Lightning` to support the custom iterative training process required by our project.
 
 ## Enviroment variables
 
@@ -117,7 +117,7 @@ tpu_use_cluster: false
 tpu_use_sudo: false
 use_cpu: false
 ```
-
+You may need to update the pytorch installation command accordingly based on your CUDA version.
 
 # Memorization Extraction
 
