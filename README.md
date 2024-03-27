@@ -70,20 +70,20 @@ pip install accelerate==0.23.0
 
 To enable iterative training in the `PyTorch Lightning` framework, please modify the code in the `<your path>/anaconda3/envs/code-unlearning/lib/python3.9/site-packages/pytorch_lightning/loops/fit_loop.py` by commenting the lines from 352 to 356, as follows:
 ```python
-    def advance(self) -> None:
-        """Runs one whole epoch."""
-        log.debug(f"{type(self).__name__}: advancing loop")
+def advance(self) -> None:
+    """Runs one whole epoch."""
+    log.debug(f"{type(self).__name__}: advancing loop")
 
-        combined_loader = self._combined_loader
-        assert combined_loader is not None
-        # if combined_loader._mode == "sequential":  # commenting
-        #     raise ValueError(  # commenting
-        #         f'`{type(self).__name__}` does not support the `CombinedLoader(mode="sequential")` mode.'  # Comment
-        #         f" The available modes are: {[m for m in _SUPPORTED_MODES if m != 'sequential']}"  # commenting
-        #     )  # commenting
-        with self.trainer.profiler.profile("run_training_epoch"):
-            assert self._data_fetcher is not None
-            self.epoch_loop.run(self._data_fetcher)
+    combined_loader = self._combined_loader
+    assert combined_loader is not None
+    # if combined_loader._mode == "sequential":  # commenting
+    #     raise ValueError(  # commenting
+    #         f'`{type(self).__name__}` does not support the `CombinedLoader(mode="sequential")` mode.'  # Comment
+    #         f" The available modes are: {[m for m in _SUPPORTED_MODES if m != 'sequential']}"  # commenting
+    #     )  # commenting
+    with self.trainer.profiler.profile("run_training_epoch"):
+        assert self._data_fetcher is not None
+        self.epoch_loop.run(self._data_fetcher)
 ```
 This modification allows `PyTorch Lightning` to support the custom iterative training process required by our project.
 

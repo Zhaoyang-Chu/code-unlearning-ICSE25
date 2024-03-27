@@ -112,9 +112,6 @@ def parse_arguments(argv):
     parser.add_argument('--top_k', type=int, default=40, help="sample from the top_k tokens output by the model")
     parser.add_argument('--gpu_id', type=str, default="1", help="specify the GPU id")
 
-    parser.add_argument('--prompt_mode', type=str, default="single_md5", choices=["single_md5", "direct_prompt"], help="The mode of the prompt to use for generation")
-    parser.add_argument('--prompt', type=str, default="", help="The prompt to use for generation (can also be the path to a file containing the prompt)")
-    parser.add_argument('--prompt_hash', type=str, default="", help="The hash of the prompt to use for generation")
     return parser.parse_args(argv)
 
 

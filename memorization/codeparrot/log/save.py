@@ -17,15 +17,6 @@ def get_args():
     parser.add_argument('--temperature', type=float, default=1.0, help="Start temperature")
     parser.add_argument('--seq_len', type=int, default=256, help="The length of extracted sequence")
     parser.add_argument('--top_k', type=int, default=40, help="sample from the top_k tokens output by the model")
-    parser.add_argument('--num_files', type=int, default=53)
-    parser.add_argument('--mode', type=str, choices=['analyze', 'extract_prompt', 'all'], default='analyze')
-    
-    parser.add_argument('--prompt_mode', type=str, default="single_md5",choices=["single_md5","direct_prompt"], help="The mode of the prompt to use for generation")
-    parser.add_argument('--prompt', type=str, default="", help="The prompt to use for generation(can also be the path to a file containing the prompt)")
-    parser.add_argument('--prompt_hash', type=str, default="", help="The hash of the prompt to use for generation")
-    
-    parser.add_argument('--sample_num', type=int, default=384)
-    
     parser.add_argument('--start', type=int, default=0, help="start id")
     parser.add_argument('--end', type=int, default=20000, help="end id")
 

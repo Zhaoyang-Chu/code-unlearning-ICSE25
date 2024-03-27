@@ -17,12 +17,6 @@ def parse_arguments():
     parser.add_argument('--temperature', type=float, default=1.0, help="Start temperature")
     parser.add_argument('--seq_len', type=int, default=256, help="The length of extracted sequence")
     parser.add_argument('--top_k', type=int, default=40, help="sample from the top_k tokens output by the model")
-
-    parser.add_argument('--prompt_mode', type=str, default="single_md5",choices=["single_md5","direct_prompt"], help="The mode of the prompt to use for generation")
-    parser.add_argument('--prompt', type=str, default="", help="The prompt to use for generation(can also be the path to a file containing the prompt)")
-    parser.add_argument('--prompt_hash', type=str, default="", help="The hash of the prompt to use for generation")
-    parser.add_argument("--tool_path",type=str,default=None)
-
     parser.add_argument('--start', type=int, default=0, help="start id")
     parser.add_argument('--end', type=int, default=20000, help="end id")
 
@@ -47,12 +41,8 @@ if __name__ == '__main__':
     generated_folder = '{}-temp{}-len{}-k{}'.format(args.model, args.temperature, args.seq_len, args.top_k)
 
     # path to the training data & the clone detection tool
-    if args.tool_path is None:
-        tool_path = os.path.join(root_dir, 'clone/simian-2.5.10.jar')
-        data_dir = os.path.join(root_dir, 'clone/save/codeparrot/codeparrot-clean-train')
-    else:
-        tool_path = args.tool_path
-        data_dir = tool_path.replace("simian-2.5.10.jar","save/codeparrot/codeparrot-clean-train")
+    tool_path = os.path.join(root_dir, 'clone/simian-2.5.10.jar')
+    data_dir = os.path.join(root_dir, 'clone/save/codeparrot/codeparrot-clean-train')
 
     file_path = os.path.join(root_dir, 'extract/results/{}/all_{}-{}'.format(generated_folder, args.start, args.end - 1))
     print(os.path.abspath(file_path))

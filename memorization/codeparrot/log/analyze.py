@@ -14,14 +14,7 @@ def get_args():
     parser.add_argument('--seq_len', type=int, default=256, help="The length of extracted sequence")
     parser.add_argument('--top_k', type=int, default=40, help="sample from the top_k tokens output by the model")
     parser.add_argument('--num_files', type=int, default=53)
-    parser.add_argument('--mode', type=str, choices=['analyze', 'extract_prompt', 'all'], default='analyze')
-
-    parser.add_argument('--prompt_mode', type=str, default="single_md5",choices=["single_md5","direct_prompt"], help="The mode of the prompt to use for generation")
-    parser.add_argument('--prompt', type=str, default="", help="The prompt to use for generation(can also be the path to a file containing the prompt)")
-    parser.add_argument('--prompt_hash', type=str, default="", help="The hash of the prompt to use for generation")
-
     parser.add_argument('--save_begin_end_list', action='store_true', help="save the begin and end list")
-    
     parser.add_argument('--start', type=int, default=0, help="start id")
     parser.add_argument('--end', type=int, default=20000, help="end id")
 
@@ -147,67 +140,6 @@ def main(args):
                 f.write(f"{begin} {end}\n")
 
 
-def extract_prompt(args):
-    '''
-    {
-        'hash_value': {
-            'prompt': 'prompt',
-            'occurrence': xxx,
-            'fignerprints': []
-        }
-    }
-    '''
-
-    folder_path = os.path.join('./log/save', args.model+'-temp'+str(args.temperature)+'-len'+str(args.seq_len)+'-k'+str(args.top_k))
-    saved_path = os.path.join(folder_path, 'analyze')
-
-    extract_prompt = {}
-    with open(os.path.join(saved_path, 'all.txt'), 'r') as f:
-        lines = f.readlines()
-        prompt = None
-        md5 = None
-        for line in lines:
-            line = line.strip()
-            if line.startswith('>>>>>>>>>>'):
-                prompt = None
-                try:
-                    md5 = re.search(r'fingerprints\s+([a-fA-F\d]{32})', line).group(1)
-                except:
-                    print(line)
-                    raise
-            elif line.startswith('<<<<<<<<<<') or line.startswith('++++'):
-                if prompt is None: #先+++再<<<<<
-                    continue
-                hash_value = hashlib.sha1(prompt.encode('utf-8')).hexdigest()
-                if hash_value not in extract_prompt:
-                    extract_prompt[hash_value] = {
-                        'prompt': prompt,
-                        'occurrence': 1,
-                        'fingerprints': md5
-                    }
-                else:
-                    extract_prompt[hash_value]['occurrence'] += 1
-                prompt = None
-            else:
-                if prompt is None:
-                    prompt = line
-                else:
-                    prompt += '\n'
-                    prompt += line
-
-    extract_prompt = dict(sorted(extract_prompt.items(), key=lambda x: x[1]["occurrence"],reverse=True))
-    with open(os.path.join(saved_path, 'extract_prompt.json'), 'w') as f:
-        json.dump(extract_prompt, f, indent=4)
-
-
 if __name__ == '__main__':
     args = get_args()
-    if args.mode == 'analyze':
-        main(args)
-    elif args.mode == 'extract_prompt':
-        extract_prompt(args)
-    elif args.mode == 'all':
-        main(args)
-        extract_prompt(args)
-    else:
-        raise ValueError("mode should be one of ['analyze', 'extract_prompt','all']")
+    main(args)
