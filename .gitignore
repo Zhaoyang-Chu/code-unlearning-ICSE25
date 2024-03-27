@@ -1,0 +1,15 @@
+__pycache__/
+
+memorization/codeparrot/extract/results/
+memorization/codeparrot/clone/save/
+memorization/codeparrot/clone/.data_cache/
+memorization/codeparrot/clone/download.log
+memorization/codeparrot/clone/*.csv
+memorization/codeparrot/log/save/
+
+memorization/codegen/benchmark.feather
+
+github_new_data/Code/
+github_new_data/Repos/
+
+unlearning/ckpts/
