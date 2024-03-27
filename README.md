@@ -235,16 +235,15 @@ python save.py --model codeparrot/codeparrot-small --top_k 40 --temperature 1.0 
 
 We move all the memorized data from the `codeparrot/codeparrot` and `codeparrot/codeparrot-small` models to the `../../../unlearning/data/codeparrot` directory for subsequent use:
 ```shell
-mkdir -p ../../../unlearning/data/codeparrot
-cp save/codeparrot/*_filtered_memorization.csv ../../../unlearning/data/codeparrot
+mkdir -p ../../unlearning/data/codeparrot
+cp log/save/codeparrot/*_filtered_memorization.csv ../../unlearning/data/codeparrot
 ```
 
 ## CodeGen
 
-Please enter the `codegen` directory using `cd ../../codegen`. 
-This directory is built upon the [official implementation](https://github.com/AISE-TUDelft/LLM4Code-extraction) of "[Traces of Memorisation in Large Language Models for Code](https://arxiv.org/abs/2312.11658)".
-For the CodeGen-Mono family of models, we extract their memorized data based on a code benchmark proposed by this work.
-By conducting the following commands, we extract 260 and 997 memorization samples for the `Salesforce/codegen-350M-mono` and `Salesforce/codegen-2B-mono` models, respectively:
+Enter the `codegen` directory using `cd ../../codegen`. 
+This directory is built upon the [official implementation](https://github.com/AISE-TUDelft/LLM4Code-extraction) of "[Traces of Memorisation in Large Language Models for Code](https://arxiv.org/abs/2312.11658)", which proposed a code benchmark to analyze memorization of the CodeGen-Mono family of models.
+By conducting the following commands, we extract 260 and 997 memorization samples for the `Salesforce/codegen-350M-mono` and `Salesforce/codegen-2B-mono` models, respectively, based on this code benchmark:
 ```shell
 python extract.py --model_name_or_path Salesforce/codegen-350M-mono --gpu_id 0 --batch_size 50
 python extract.py --model_name_or_path Salesforce/codegen-2B-mono --gpu_id 0 --batch_size 50
