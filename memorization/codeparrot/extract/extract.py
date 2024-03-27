@@ -36,19 +36,6 @@ def save_samples(path_to_save: str, text: str, file_id):
         f.write(text)
 
 
-def get_prompts(args):
-    if args.prompt_mode == "single_md5":
-        with open(args.prompt, 'r') as f:
-            json_data = json.load(f)
-            try:
-                prompts = [json_data[args.prompt_hash]['prompt']]
-            except:
-                raise ValueError("The prompt file is not in the correct format or the hash is not correct")
-            return prompts
-    elif args.prompt_mode == 'direct_prompt':
-        return [args.prompt]
-
-
 def main():
     model_name = args.model
     device = torch.device("cuda:" + str(args.gpu_id) if torch.cuda.is_available() else "cpu")
@@ -56,28 +43,13 @@ def main():
     model.to(device)
     model.eval()
 
-    if not args.internet_sampling:
-        # set the path to save the generated samples
-        path_to_save = 'results/{}-temp{}-len{}-k{}-{}/separate'.format(model_name, args.temperature, args.seq_len, args.top_k, args.generation_strategy)
-        os.makedirs(path_to_save, exist_ok=True)
-        # set the prompts
-        prompts = [tokenizer.bos_token] * args.batch_size
-        inputs = tokenizer(prompts, return_tensors="pt")
-    else:
-        # set the path to save the generated samples        
-        if args.prompt_mode == 'single_md5':
-            hash_value = args.prompt_hash
-        elif args.prompt_mode == 'direct_prompt':
-            hash_value = hashlib.sha1(args.prompt.encode('utf-8')).hexdigest()
-        path_to_save = 'results/{}-temp{}-len{}-k{}-{}/internet/{}'.format(model_name, args.temperature, args.seq_len, args.top_k, args.generation_strategy, hash_value)
-        os.makedirs(path_to_save)
-        # set the prompts
-        prompts_txt = get_prompts(args)
-        prompts = prompts_txt * args.batch_size
-        inputs = tokenizer(prompts, return_tensors="pt")
-        # save the prompts
-        with open(os.path.join(path_to_save, 'prompts.txt'), 'w') as f:
-            f.write(prompts_txt[0])
+    # set the path to save the generated samples
+    path_to_save = 'results/{}-temp{}-len{}-k{}/separate'.format(model_name, args.temperature, args.seq_len, args.top_k)
+    os.makedirs(path_to_save, exist_ok=True)
+    # set the prompts
+    prompts = [tokenizer.bos_token] * args.batch_size
+    inputs = tokenizer(prompts, return_tensors="pt")
+
     print("The generated samples will be saved to {}...".format(path_to_save))
     input_len = len(inputs['input_ids'][0])
     # number of tokens to generate
@@ -126,8 +98,6 @@ def main():
         for text in texts:
             if existing_count >= init_existing_count + args.N:
                 break
-            if args.internet_sampling:
-                text = text[len(prompts_txt[0]):]
             save_samples(path_to_save, text, existing_count)  # store the results
             existing_count += 1
 
@@ -141,12 +111,10 @@ def parse_arguments(argv):
     parser.add_argument('--seq_len', type=int, default=256, help="The length of extracted sequence")
     parser.add_argument('--top_k', type=int, default=40, help="sample from the top_k tokens output by the model")
     parser.add_argument('--gpu_id', type=str, default="1", help="specify the GPU id")
-    parser.add_argument('--internet-sampling', action='store_true', help="condition the generation on the internet")
 
     parser.add_argument('--prompt_mode', type=str, default="single_md5", choices=["single_md5", "direct_prompt"], help="The mode of the prompt to use for generation")
     parser.add_argument('--prompt', type=str, default="", help="The prompt to use for generation (can also be the path to a file containing the prompt)")
     parser.add_argument('--prompt_hash', type=str, default="", help="The hash of the prompt to use for generation")
-    parser.add_argument('--generation_strategy', type=str, default="npg", choices=["npg", "tdg", "pcg", "tsg"], help="The strategy to generate outputs from large code models")
     return parser.parse_args(argv)
 
 

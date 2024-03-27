@@ -16,14 +16,12 @@ def get_args():
     parser.add_argument('--num_files', type=int, default=53)
     parser.add_argument('--mode', type=str, choices=['analyze', 'extract_prompt', 'all'], default='analyze')
 
-    parser.add_argument('--internet-sampling', action='store_true', help="condition the generation on the internet")
     parser.add_argument('--prompt_mode', type=str, default="single_md5",choices=["single_md5","direct_prompt"], help="The mode of the prompt to use for generation")
     parser.add_argument('--prompt', type=str, default="", help="The prompt to use for generation(can also be the path to a file containing the prompt)")
     parser.add_argument('--prompt_hash', type=str, default="", help="The hash of the prompt to use for generation")
 
     parser.add_argument('--save_begin_end_list', action='store_true', help="save the begin and end list")
     
-    parser.add_argument('--generation_strategy', type=str, default="npg", choices=["npg", "tdg", "pcg", "tsg"], help="The strategy to generate outputs from large code models")
     parser.add_argument('--start', type=int, default=0, help="start id")
     parser.add_argument('--end', type=int, default=20000, help="end id")
 
@@ -32,18 +30,7 @@ def get_args():
 
 
 def main(args):
-    folder_path = os.path.join('log/save', args.model+'-temp'+str(args.temperature)+'-len'+str(args.seq_len)+'-k'+str(args.top_k)+'-'+args.generation_strategy, f'{args.start}-{args.end - 1}')
-    
-    if args.internet_sampling:
-        if args.prompt_mode == 'single_md5':
-            hash_value = args.prompt_hash
-        elif args.prompt_mode == 'direct_prompt':
-            if isinstance(args.prompt, str) and len(args.prompt) == 40 and re.match("^[a-f0-9]+$", args.prompt):
-                args.prompt_hash = args.prompt
-            else:
-                hash_value = hashlib.sha1(args.prompt.encode('utf-8')).hexdigest()
-                args.prompt_hash = hash_value
-        folder_path = os.path.join(folder_path,args.prompt_hash)
+    folder_path = os.path.join('log/save', args.model+'-temp'+str(args.temperature)+'-len'+str(args.seq_len)+'-k'+str(args.top_k), f'{args.start}-{args.end - 1}')
 
     save_path = os.path.join(folder_path, 'analyze')
     if not os.path.exists(save_path):
@@ -171,7 +158,7 @@ def extract_prompt(args):
     }
     '''
 
-    folder_path = os.path.join('./log/save', args.model+'-temp'+str(args.temperature)+'-len'+str(args.seq_len)+'-k'+str(args.top_k)+'-'+args.generation_strategy)
+    folder_path = os.path.join('./log/save', args.model+'-temp'+str(args.temperature)+'-len'+str(args.seq_len)+'-k'+str(args.top_k))
     saved_path = os.path.join(folder_path, 'analyze')
 
     extract_prompt = {}

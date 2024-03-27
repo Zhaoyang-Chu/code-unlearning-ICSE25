@@ -32,7 +32,6 @@ def parse_arguments():
     parser.add_argument('--prompt_mode', type=str, default="single_md5", choices=["single_md5","direct_prompt"], help="The mode of the prompt to use for generation")
     parser.add_argument('--prompt', type=str, default="", help="The prompt to use for generation (can also be the path to a file containing the prompt)")
     parser.add_argument('--prompt_hash', type=str, default="", help="The hash of the prompt to use for generation")
-    parser.add_argument('--generation_strategy', type=str, default="npg", choices=["npg", "tdg", "pcg", "tsg"], help="The strategy to generate outputs from large code models")
     return parser.parse_args()
 
 
@@ -42,10 +41,7 @@ def store(result_path, result_save_path, files, start, end, args):
     assert start < len(files) and end <= len(files), "start and end should be smaller than the number of files"
 
     # path to store the merged file
-    if args.internet_sampling:
-        merged_file_path = os.path.join(result_path, 'all_{}-{}-{}'.format(args.prompt_hash, start, end - 1))
-    else:
-        merged_file_path = os.path.join(result_path, 'all_{}-{}'.format(start, end - 1))
+    merged_file_path = os.path.join(result_path, 'all_{}-{}'.format(start, end - 1))
     logger.info("Start merging files from {} to {}".format(start, end - 1))
     
     curser = 0
@@ -85,19 +81,8 @@ def store(result_path, result_save_path, files, start, end, args):
 if __name__ == '__main__':
     args = parse_arguments()
     
-    result_path = 'results/{}-temp{}-len{}-k{}-{}'.format(args.model, args.temperature, args.seq_len, args.top_k, args.generation_strategy)
-    if not args.internet_sampling:
-        result_save_path = os.path.join(result_path, 'separate')
-    else:
-        if args.prompt_mode == 'single_md5':
-            hash_value = args.prompt_hash
-        elif args.prompt_mode == 'direct_prompt':
-            if isinstance(args.prompt, str) and len(args.prompt) == 40 and re.match("^[a-f0-9]+$", args.prompt):
-                args.prompt_hash = args.prompt
-            else:
-                hash_value = hashlib.sha1(args.prompt.encode('utf-8')).hexdigest()
-                args.prompt_hash = hash_value
-        result_save_path = os.path.join(result_path, 'internet', args.prompt_hash)
+    result_path = 'results/{}-temp{}-len{}-k{}'.format(args.model, args.temperature, args.seq_len, args.top_k)
+    result_save_path = os.path.join(result_path, 'separate')
     logger.info("Analyzing reuslts in {}".format(result_save_path))
     
     files = os.listdir(result_save_path)
